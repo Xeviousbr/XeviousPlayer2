@@ -1,0 +1,34 @@
+===================================================================
+About PVS.MediaPlayer source code
+
+PVS.MediaPlayer Version 0.99 - Source Code (C# language)
+© Copyright 2020 PVS The Netherlands - License: The Code Project Open License (CPOL)
+
+PVS.MediaPlayer has built in (part of) the Media Foundation .NET library by nowinskie and snarfle (https://sourceforge.net/projects/mfnet).
+Licensed under either Lesser General Public License v2.1 or BSD.  See license.txt or BSDL.txt for details (http://mfnet.sourceforge.net).
+===================================================================
+
+    The PVS.MediaPlayer library source code is divided into 8 files:
+
+    1. Player.cs	- main source code
+    2. SubClasses.cs	- various grouping and information classes
+    3. Interop.cs	- unmanaged Win32 functions
+    4. AudioDevices.cs  - audio devices and peak meters
+    5. DisplayClones.cs - multiple video displays 
+    6. CursorHide.cs	- hides the mouse cursor during inactivity
+    7. Subtitles.cs	- subrip (.srt) subtitles
+    8. Infolabel.cs	- custom ToolTip
+
+
+    Required references:
+    System
+    System.Drawing
+    System.Windows.Forms
+
+
+    For use with Microsoft Windows 7 or later, Microsoft .NET Framework version 2.0 or higher and WinForms (any CPU).
+    Created with Microsoft Visual Studio.
+
+===================================================================
+© PVS The Netherlands - May 2020
+

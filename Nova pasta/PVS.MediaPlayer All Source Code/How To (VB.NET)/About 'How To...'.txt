@@ -1,0 +1,48 @@
+===================================================================
+About the 'How To...' projects source code
+
+PVS.MediaPlayer Version 0.99 - Source Code (C# and VB.NET language)
+© Copyright 2020 PVS The Netherlands - License: The Code Project Open License (CPOL)
+
+PVS.MediaPlayer has built in (part of) the Media Foundation .NET library by nowinskie and snarfle (https://sourceforge.net/projects/mfnet).
+Licensed under either Lesser General Public License v2.1 or BSD.  See license.txt or BSDL.txt for details (http://mfnet.sourceforge.net).
+===================================================================
+
+The small 'How To...' (PVSMediaPlayerHowTo) project (for both C# and VB.Net) shows how to use the more 'special' Player options of the PVS.MediaPlayer library with one or two lines of easy to understand source code and a short comment for:
+
+      1. check if Microsoft Media Foundation is installed
+
+      2. change the shape of the player's display window
+      3. drag a form by dragging a player's display window
+      4. automatically hide the mouse cursor during media playback
+
+      5. add a display overlay
+      5a.display overlay opacity with clones and copies
+      6. make a display overlay always visible - from application start
+    
+      7. add one or more display clones
+
+      8. get media ended information
+      9. play (or repeat) only a part of a media file
+    10. add a taskbar progress indicator
+
+    11. continuously receive information about the playback position
+    12. add a position slider controlled by the player
+
+    13. set the audio output device used by the player
+    14. select an audio or video track
+
+    15. audio values: set and get audio volume and balance information
+    16. audio sliders: add audio volume and balance sliders controlled by the player
+    17. continuously receive information about the audio output levels
+
+    18. get media subtitles
+    19. get media metadata properties
+    20. add a custom info label to any slider (trackbar)
+
+The PVS.MediaPlayer library and examples source code are created with Microsoft Visual Studio 2019.
+
+If you are using an older version of Visual Studio and can not use (the free community version of) Visual Studio 2019, you can convert PVS.MediaPlayer projects to your older version by modifying the projects .sln files. Please search the internet for more information (e.g. "downgrade Visual Studio project").
+
+===================================================================
+© PVS The Netherlands - May 2020

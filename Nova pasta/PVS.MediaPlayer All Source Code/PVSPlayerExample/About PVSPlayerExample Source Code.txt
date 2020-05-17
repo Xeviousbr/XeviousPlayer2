@@ -1,0 +1,18 @@
+===================================================================
+About the 'PVSPlayerExample' sample application source code
+
+PVS.MediaPlayer Version 0.99 - Source Code
+© Copyright 2020 PVS The Netherlands - License: The Code Project Open License (CPOL)
+
+PVS.MediaPlayer uses (part of) the Media Foundation .NET library by nowinskie and snarfle (https://sourceforge.net/projects/mfnet).
+Licensed under either Lesser General Public License v2.1 or BSD.  See license.txt or BSDL.txt for details (http://mfnet.sourceforge.net).
+===================================================================
+
+The PVS.MediaPlayer library and examples source code are created with Microsoft Visual Studio 2019.
+
+If you are using an older version of Visual Studio and can not use (the free community version of) Visual Studio 2019, you can convert PVS.MediaPlayer projects to your older version by modifying the projects .sln files. Please search the internet for more information (e.g. "downgrade Visual Studio project").
+
+If you open the PVSPlayerExample project for the first time in Visual Studio, run or build the application to remove any errors caused by the custom controls that are used in the application.
+
+===================================================================
+© PVS The Netherlands - May 2020

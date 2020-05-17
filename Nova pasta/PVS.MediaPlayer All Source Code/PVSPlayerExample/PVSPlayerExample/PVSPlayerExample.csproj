@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D34F9437-EAD0-4F4F-85E7-DC65F5788BB6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PVSPlayerExample</RootNamespace>
+    <AssemblyName>PVSPlayerExample</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Media Normal.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PVS.MediaPlayer, Version=0.9.9.40, Culture=neutral, PublicKeyToken=1cda2f5602567ced, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\PVS.MediaPlayer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\ChannelMixerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ChannelMixerDialog.Designer.cs">
+      <DependentUpon>ChannelMixerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clone Window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clone Window.Designer.cs">
+      <DependentUpon>Clone Window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\VideoColorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\VideoColorDialog.Designer.cs">
+      <DependentUpon>VideoColorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\WebcamDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\WebcamDialog.Designer.cs">
+      <DependentUpon>WebcamDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Various\Display Clones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Window.Designer.cs">
+      <DependentUpon>Main Window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Various\FileSearch.cs" />
+    <Compile Include="Dialogs\AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AboutDialog.Designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AddURLDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AddURLDialog.Designer.cs">
+      <DependentUpon>AddURLDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PuzzleDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PuzzleDialog.Designer.cs">
+      <DependentUpon>PuzzleDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\VideoWallOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\VideoWallOverlay.Designer.cs">
+      <DependentUpon>VideoWallOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\BigTimeOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\BigTimeOverlay.Designer.cs">
+      <DependentUpon>BigTimeOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Items\Custom Controls.cs" />
+    <Compile Include="Display Overlays\BouncingOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\BouncingOverlay.designer.cs">
+      <DependentUpon>BouncingOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\MessageOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\MessageOverlay.designer.cs">
+      <DependentUpon>MessageOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\MP3CoverOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\MP3CoverOverlay.designer.cs">
+      <DependentUpon>MP3CoverOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\PIPOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\PIPOverlay.designer.cs">
+      <DependentUpon>PIPOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\ScribbleOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\ScribbleOverlay.designer.cs">
+      <DependentUpon>ScribbleOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\StatusInfoOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\StatusInfoOverlay.Designer.cs">
+      <DependentUpon>StatusInfoOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\SubtitlesOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\SubtitlesOverlay.designer.cs">
+      <DependentUpon>SubtitlesOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\TilesOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\TilesOverlay.designer.cs">
+      <DependentUpon>TilesOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\ZoomSelectOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\ZoomSelectOverlay.Designer.cs">
+      <DependentUpon>ZoomSelectOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ErrorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ErrorDialog.Designer.cs">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Various\Drag and Drop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Items\Custom Fonts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Various\Interfaces.cs" />
+    <Compile Include="Dialogs\PlayListDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PlayListDialog.Designer.cs">
+      <DependentUpon>PlayListDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\MP3KaraokeOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\MP3KaraokeOverlay.Designer.cs">
+      <DependentUpon>MP3KaraokeOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Native Methods\Native Methods.cs" />
+    <Compile Include="Various\Preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PreferencesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PreferencesDialog.Designer.cs">
+      <DependentUpon>PreferencesDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Various\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Dialogs\WebSiteDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\WebSiteDialog.Designer.cs">
+      <DependentUpon>WebSiteDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Various\SliderPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Webcam Window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Webcam Window.Designer.cs">
+      <DependentUpon>Webcam Window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display Overlays\WebcamCopyOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Display Overlays\WebcamCopyOverlay.Designer.cs">
+      <DependentUpon>WebcamCopyOverlay.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dialogs\ChannelMixerDialog.resx">
+      <DependentUpon>ChannelMixerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clone Window.resx">
+      <DependentUpon>Clone Window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AddURLDialog.resx">
+      <DependentUpon>AddURLDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\PreferencesDialog.resx">
+      <DependentUpon>PreferencesDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\PuzzleDialog.resx">
+      <DependentUpon>PuzzleDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\VideoColorDialog.resx">
+      <DependentUpon>VideoColorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\WebcamDialog.resx">
+      <DependentUpon>WebcamDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\VideoWallOverlay.resx">
+      <DependentUpon>VideoWallOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\BigTimeOverlay.resx">
+      <DependentUpon>BigTimeOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\BouncingOverlay.resx">
+      <DependentUpon>BouncingOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\MessageOverlay.resx">
+      <DependentUpon>MessageOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\MP3CoverOverlay.resx">
+      <DependentUpon>MP3CoverOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\PIPOverlay.resx">
+      <DependentUpon>PIPOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\ScribbleOverlay.resx">
+      <DependentUpon>ScribbleOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\StatusInfoOverlay.resx">
+      <DependentUpon>StatusInfoOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\SubtitlesOverlay.resx">
+      <DependentUpon>SubtitlesOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\TilesOverlay.resx">
+      <DependentUpon>TilesOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\WebcamCopyOverlay.resx">
+      <DependentUpon>WebcamCopyOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\ZoomSelectOverlay.resx">
+      <DependentUpon>ZoomSelectOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ErrorDialog.resx">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\PlayListDialog.resx">
+      <DependentUpon>PlayListDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display Overlays\MP3KaraokeOverlay.resx">
+      <DependentUpon>MP3KaraokeOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Window.resx">
+      <DependentUpon>Main Window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\WebSiteDialog.resx">
+      <DependentUpon>WebSiteDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Webcam Window.resx">
+      <DependentUpon>Webcam Window.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Resources\Crystal Italic1.ttf" />
+    <EmbeddedResource Include="Resources\WingDings3a.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\VU Meter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Dial Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Media Normal.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Media Playing.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Bob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dial Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PVSLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PVSLogoOutline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dial Normal 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dial Red 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kaizen-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Media Paused.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Recorder Recording.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
