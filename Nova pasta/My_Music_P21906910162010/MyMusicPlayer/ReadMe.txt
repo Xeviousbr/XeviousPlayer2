@@ -1,0 +1,5 @@
+Here is a music player that does just about everything you really need to do without being complex like Windows Media Player or iTunes.
+It plays MP3 files and reads ID3 tags to get artist, title, and album art. It can open and save playlists in WinAMP M3U format.
+And it has a shuffle feature that really works well. It can run on the desktop or in the system tray.
+
+This revision adds some minor tweaks.

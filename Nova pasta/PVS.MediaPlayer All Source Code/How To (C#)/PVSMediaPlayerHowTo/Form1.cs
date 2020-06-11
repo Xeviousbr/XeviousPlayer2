@@ -124,8 +124,8 @@ namespace PVSMediaPlayerHowTo
             };
 
             // mouse down eventhandlers to switch between stretch and zoom of clone displays
-            panel2.MouseDown += Clone_MouseClick;
-            panel3.MouseDown += Clone_MouseClick;
+            //panel2.MouseDown += Clone_MouseClick;
+            //panel3.MouseDown += Clone_MouseClick;
 
 
             // You may want to add one or more of the following options to your player:
@@ -249,16 +249,16 @@ namespace PVSMediaPlayerHowTo
             // For special purposes you can create one or more player display clones (display copies).
             // Display clones require sufficient computing (CPU) power and may slow some computers:
 
-            myPlayer.DisplayClones.AddRange(new Control[] { panel2, panel3 });
+            //myPlayer.DisplayClones.AddRange(new Control[] { panel2, panel3 });
 
             // CPU load can be reduced by lowering the framerate, quality or size of the clones.
 
             // Display clones use a CloneProperties data structure to get or set its properties,
             // for example to set the 'stretch' option for a display clone:
 
-            CloneProperties props = myPlayer.DisplayClones.GetProperties(panel2);
-            props.Layout = CloneLayout.Stretch;
-            myPlayer.DisplayClones.SetProperties(panel2, props);
+            //CloneProperties props = myPlayer.DisplayClones.GetProperties(panel2);
+            //props.Layout = CloneLayout.Stretch;
+            //myPlayer.DisplayClones.SetProperties(panel2, props);
 
             // Display clones can now also have a custom shape, just like the player's display window, for example:
             // myPlayer.DisplayClones.SetProperties(panel2, new CloneProperties { Shape = DisplayShape.Oval });
@@ -615,7 +615,7 @@ namespace PVSMediaPlayerHowTo
             // show the display overlay at the start of the application (even if no movie is playing):
             // this instruction is put here because the player's display has to be 'created and visible'
             // to show the overlay:
-            myPlayer.Overlay.Hold = true;
+            //myPlayer.Overlay.Hold = true;
         }
 
         // Cleaning up - this is moved here from the 'Form1.Designer.cs' file and appended:
@@ -705,13 +705,13 @@ namespace PVSMediaPlayerHowTo
         // Show changed audio volume value
         private void MyPlayer_MediaAudioVolumeChanged(object sender, System.EventArgs e)
         {
-            label3.Text = (myPlayer.Audio.Volume).ToString("0.00");
+            //label3.Text = (myPlayer.Audio.Volume).ToString("0.00");
         }
 
         // Show changed audio balance value
         private void MyPlayer_MediaAudioBalanceChanged(object sender, System.EventArgs e)
         {
-            label4.Text = (myPlayer.Audio.Balance).ToString("0.00");
+            //label4.Text = (myPlayer.Audio.Balance).ToString("0.00");
         }
 
         // Display the elapsed and remaining playback time
@@ -720,7 +720,7 @@ namespace PVSMediaPlayerHowTo
             // all lengths are in 'ticks' - 10000 ticks = 1 millisecond - use TimeSpan.FromTicks:
 
             label1.Text = TimeSpan.FromTicks(e.FromStart).ToString().Substring(0, 8); // "hh:mm:ss"
-            label2.Text = TimeSpan.FromTicks(e.ToStop).ToString().Substring(0, 8);    // "hh:mm:ss"
+            //label2.Text = TimeSpan.FromTicks(e.ToStop).ToString().Substring(0, 8);    // "hh:mm:ss"
 
             // from .NET 4.0 TimeSpan supports (custom) format strings e.g.
             // label1.Text = TimeSpan.FromTicks(e.FromStart).ToString(@"hh\:mm\:ss"); // "hh:mm:ss"
@@ -737,8 +737,8 @@ namespace PVSMediaPlayerHowTo
                 leftLevel = rightLevel = 0;
 
                 // value display:
-                label5.Text = "0.00"; // same format as below
-                label6.Text = "0.00";
+                //label5.Text = "0.00"; // same format as below
+                //label6.Text = "0.00";
             }
             else
             {
@@ -750,8 +750,8 @@ namespace PVSMediaPlayerHowTo
                 rightLevel = (int)(e.ChannelsValues[1] * levelUnit);
 
                 // value display (use string format because of float rounding errors - zero can become a small value):
-                label5.Text = e.ChannelsValues[0].ToString("0.00");
-                label6.Text = e.ChannelsValues[1].ToString("0.00");
+                //label5.Text = e.ChannelsValues[0].ToString("0.00");
+                //label6.Text = e.ChannelsValues[1].ToString("0.00");
             }
             panel4.Invalidate();
             panel5.Invalidate();
@@ -895,28 +895,32 @@ namespace PVSMediaPlayerHowTo
         // Set player display overlay
         private void CheckBox1_CheckedChanged(object sender, System.EventArgs e)
         {
-            if (checkBox1.Checked) myPlayer.Overlay.Window = myOverlay;
-            else myPlayer.Overlay.Window = null;
+            //if (checkBox1.Checked) {
+                myPlayer.Overlay.Window = myOverlay;
+            //} else
+            //{
+            //    myPlayer.Overlay.Window = null;
+            //}
         }
 
         // Set player display clones overlay
-        private void CheckBox2_CheckedChanged(object sender, System.EventArgs e)
-        {
-            myPlayer.DisplayClones.ShowOverlay = checkBox2.Checked;
-        }
+        //private void CheckBox2_CheckedChanged(object sender, System.EventArgs e)
+        //{
+        //    myPlayer.DisplayClones.ShowOverlay = checkBox2.Checked;
+        //}
 
         // Set position slider live update
         private void CheckBox3_CheckedChanged(object sender, System.EventArgs e)
         {
-            myPlayer.Sliders.Position.LiveUpdate = checkBox3.Checked;
+            //myPlayer.Sliders.Position.LiveUpdate = checkBox3.Checked;
         }
 
         // Set taskbar progress indicator
-        private void TaskbarBox_CheckedChanged(object sender, System.EventArgs e)
-        {
-            if (taskbarBox.Checked) myPlayer.TaskbarProgress.Add(this);
-            else myPlayer.TaskbarProgress.Remove(this);
-        }
+        //private void TaskbarBox_CheckedChanged(object sender, System.EventArgs e)
+        //{
+        //    if (taskbarBox.Checked) myPlayer.TaskbarProgress.Add(this);
+        //    else myPlayer.TaskbarProgress.Remove(this);
+        //}
 
         // Set display shape - using the preset display shapes
         private void CheckBox4_CheckedChanged(object sender, System.EventArgs e)
@@ -927,27 +931,27 @@ namespace PVSMediaPlayerHowTo
             {
                 case 1: // oval shaped video and overlay
                     myPlayer.Display.SetShape(DisplayShape.Oval, true, true);
-                    panel2.BackColor = this.BackColor;
-                    panel3.BackColor = this.BackColor;
+                    //panel2.BackColor = this.BackColor;
+                    //panel3.BackColor = this.BackColor;
                     break;
 
                 case 3: // rounded rectangle shaped video and overlay
                     myPlayer.Display.SetShape(DisplayShape.Rounded, true, true);
-                    panel2.BackColor = this.BackColor;
-                    panel3.BackColor = this.BackColor;
+                    //panel2.BackColor = this.BackColor;
+                    //panel3.BackColor = this.BackColor;
                     break;
 
                 case 5: // star shaped video and overlay
                     myPlayer.Display.SetShape(DisplayShape.Star, true, true);
-                    panel2.BackColor = this.BackColor;
-                    panel3.BackColor = this.BackColor;
+                    //panel2.BackColor = this.BackColor;
+                    //panel3.BackColor = this.BackColor;
                     break;
 
                 default:
                     // normal shaped display and overlay
                     myPlayer.Display.SetShape(DisplayShape.Normal);
-                    panel2.BackColor = Color.FromArgb(32, 32, 32);
-                    panel3.BackColor = Color.FromArgb(32, 32, 32);
+                    //panel2.BackColor = Color.FromArgb(32, 32, 32);
+                    //panel3.BackColor = Color.FromArgb(32, 32, 32);
                     break;
             }
         }

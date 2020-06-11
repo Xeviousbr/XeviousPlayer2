@@ -4,7 +4,7 @@ using PVS.MediaPlayer;
 
 // https://www.codeproject.com/Articles/109714/PVS-MediaPlayer-Audio-and-Video-Player-Library
 
-namespace PVSMediaPlayerHowTo
+namespace XeviousPlayer2
 {
     static class Program
     {

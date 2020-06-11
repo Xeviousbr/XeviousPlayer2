@@ -1,4 +1,4 @@
-﻿namespace PVSMediaPlayerHowTo
+﻿namespace XeviousPlayer2
 {
     partial class Overlay
     {
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.subtitlesLabel = new PVSMediaPlayerHowTo.BlendLabel();
-            this.flashLabel = new PVSMediaPlayerHowTo.BlendLabel();
+            this.subtitlesLabel = new XeviousPlayer2.BlendLabel();
+            this.flashLabel = new XeviousPlayer2.BlendLabel();
             this.SuspendLayout();
             // 
             // subtitlesLabel
@@ -56,7 +56,6 @@
             this.flashLabel.Name = "flashLabel";
             this.flashLabel.Size = new System.Drawing.Size(293, 158);
             this.flashLabel.TabIndex = 2;
-            this.flashLabel.Text = "Display Overlay";
             this.flashLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Overlay

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 // This has been copied from PVSPlayerExample to display custom buttons on the main form
 
-namespace PVSMediaPlayerHowTo
+namespace XeviousPlayer2
 {
     #region Global Color Scheme
 

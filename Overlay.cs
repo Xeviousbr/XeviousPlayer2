@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace PVSMediaPlayerHowTo
+namespace XeviousPlayer2
 {
     public partial class Overlay : Form
     {
@@ -105,7 +105,7 @@ namespace PVSMediaPlayerHowTo
             {
                 flashOn = false;
                 flashLabel.ForeColor = FOREGROUND_COLOR;
-                flashTimer.Start();
+                //flashTimer.Start();
 
                 // enable dragging of the main display (if  enabled)
                 this.MouseDown           += basePlayer.Display.Drag_MouseDown;

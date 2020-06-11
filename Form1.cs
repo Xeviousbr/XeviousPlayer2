@@ -1,5 +1,4 @@
-﻿#region Usings
-
+﻿// using System.Data.SQLite.Generic;
 using PVS.MediaPlayer;
 using System;
 using System.Drawing;
@@ -7,9 +6,7 @@ using System.Drawing.Drawing2D;
 using System.Text;
 using System.Windows.Forms;
 
-#endregion
-
-namespace PVSMediaPlayerHowTo
+namespace XeviousPlayer2
 {
     public partial class Form1 : Form
     {
@@ -103,6 +100,8 @@ namespace PVSMediaPlayerHowTo
 
 
         // **** Main **********************************************************************************
+
+        private bool Tocando = false;
 
         #region Main
 
@@ -612,10 +611,14 @@ namespace PVSMediaPlayerHowTo
         // Show display overlay at start up
         private void Form1_Shown(object sender, System.EventArgs e)
         {
-            // show the display overlay at the start of the application (even if no movie is playing):
-            // this instruction is put here because the player's display has to be 'created and visible'
-            // to show the overlay:
-            myPlayer.Overlay.Hold = true;
+        // show the display overlay at the start of the application (even if no movie is playing):
+        // this instruction is put here because the player's display has to be 'created and visible'
+        // to show the overlay:
+        //myPlayer.Overlay.Hold = true;
+
+        // http://portugalvbnet.blogspot.com/2011/10/continuando-o-artigo-anterior-sobre.html
+
+            DalHelper.CriarBancoSQLite();
         }
 
         // Cleaning up - this is moved here from the 'Form1.Designer.cs' file and appended:
@@ -676,20 +679,28 @@ namespace PVSMediaPlayerHowTo
                         metaData = myPlayer.Media.GetMetadata();
 
                         panel1.BackgroundImageLayout = ImageLayout.Zoom;
-                        panel1.BackgroundImage = metaData.Image;
-
-                        myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
+                        if (metaData.Image==null)
+                        {
+                            panel1.Visible = false;
+                            listView.Height = 446;
+                        } else
+                        {
+                            panel1.Visible = true;
+                            listView.Height = 259;
+                            panel1.BackgroundImage = metaData.Image;
+                            myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
+                        }                                                
                     }
                 }
             }
         }
 
-        private void PauseMedia()
-        {
-            myPlayer.Paused = !myPlayer.Paused;
-            if (myPlayer.Paused) button2.Text = "Resume";
-            else button2.Text = "Pause";
-        }
+        //private void PauseMedia()
+        //{
+        //    myPlayer.Paused = !myPlayer.Paused;
+        //    if (myPlayer.Paused) button2.Text = "Resume";
+        //    else button2.Text = "Pause";
+        //}
 
         private void StopMedia()
         {
@@ -956,31 +967,38 @@ namespace PVSMediaPlayerHowTo
 
         #region Buttons
 
-        // Play
-        private void Button1_Click(object sender, System.EventArgs e)
-        {
-            PlayMedia();
-        }
-
-        // Pause / Resume
-        private void Button2_Click(object sender, System.EventArgs e)
-        {
-            PauseMedia();
-        }
-
-        // Stop
-        private void Button3_Click(object sender, System.EventArgs e)
-        {
-            StopMedia();
-        }
-
-        // Quit
-        private void Button5_Click(object sender, System.EventArgs e)
-        {
-            Application.Exit();
-        }
-
         #endregion
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (Tocando)
+            {
+                if (myPlayer.Paused)
+                {
+                    myPlayer.Paused = false;
+                } else
+                {
+                    PlayMedia();
+                }
+            } else                      
+            {
+                PlayMedia();
+                Tocando = true;
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (Tocando)
+            {
+                myPlayer.Paused = !myPlayer.Paused;
+            }
+            else
+            {
+                PlayMedia();
+                Tocando = true;
+            }
+            // PauseMedia();
+        }
     }
 }
