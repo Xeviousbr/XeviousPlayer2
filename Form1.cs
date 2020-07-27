@@ -90,9 +90,9 @@ namespace XeviousPlayer2
 
         private Metadata        metaData;           // media metadata properties
         private OpenFileDialog  myOpenFileDlg;      // used with selection of media to play
-        private const string    OPENMEDIA_DIALOG_FILTER =
+        /* private const string    OPENMEDIA_DIALOG_FILTER =
             " Media Files (*.*)|*.3g2; *.3gp; *.3gp2; *.3gpp; *.aac; *.adts; *.asf; *.avi; *.m4a; *.m4v; *.mkv; *.mov; *.mp3; *.mp4; *.mpeg; *.mpg; *.sami; *.smi; *.wav; *.webm; *.wma; *.wmv|" +
-            " All Files|*.*";
+            " All Files|*.*"; */
 
         private bool            isDisposed;         // used with cleaning up
 
@@ -118,7 +118,7 @@ namespace XeviousPlayer2
             myOpenFileDlg = new OpenFileDialog()        // create a file selector
             {
                 Title       = "Play Media",
-                Filter      = OPENMEDIA_DIALOG_FILTER,
+                Filter      = " Media Files (*.*)|" + Gen.OPENMEDIA_DIALOG_FILTER +" All Files|*.*",
                 FilterIndex = 1                         // 1 = media files
             };
 
@@ -618,7 +618,7 @@ namespace XeviousPlayer2
 
         // http://portugalvbnet.blogspot.com/2011/10/continuando-o-artigo-anterior-sobre.html
 
-            DalHelper.CriarBancoSQLite();
+            //DalHelper.CriarBancoSQLite();
         }
 
         // Cleaning up - this is moved here from the 'Form1.Designer.cs' file and appended:
@@ -999,6 +999,12 @@ namespace XeviousPlayer2
                 Tocando = true;
             }
             // PauseMedia();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            Config cConfig = new Config();
+            cConfig.ShowDialog();
         }
     }
 }

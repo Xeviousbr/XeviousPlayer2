@@ -44,13 +44,13 @@ namespace XeviousPlayer2
             }
         }
 
-        public static void CriarTabelaSQlite()
+        /* public static void CriarTabelaSQlite()
         {
             try
             {
                 using (var cmd = DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "CREATE TABLE IF NOT EXISTS Clientes(id int, Nome Varchar(50), email VarChar(80))";
+                    cmd.CommandText = "CREATE TABLE IF NOT EXISTS Config (PathBase Text) ";
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -58,7 +58,7 @@ namespace XeviousPlayer2
             {
                 throw ex;
             }
-        }
+        } */
 
         //public static DataTable GetClientes()
         //{
@@ -119,43 +119,47 @@ namespace XeviousPlayer2
         //    }
         //}
 
-        //public static void Update(Cliente cliente)
-        //{
-        //    try
-        //    {
-        //        using (var cmd = new SQLiteCommand(DbConnection()))
-        //        {
-        //            if (cliente.Id != null)
-        //            {
-        //                cmd.CommandText = "UPDATE Clientes SET Nome=@Nome, Email=@Email WHERE Id=@Id";
-        //                cmd.Parameters.AddWithValue("@Id", cliente.Id);
-        //                cmd.Parameters.AddWithValue("@Nome", cliente.Nome);
-        //                cmd.Parameters.AddWithValue("@Email", cliente.Email);
-        //                cmd.ExecuteNonQuery();
-        //            }
-        //        };
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-        public static void Delete(int Id)
+        public static void ExecSql(string SQL)
         {
             try
             {
                 using (var cmd = new SQLiteCommand(DbConnection()))
                 {
-                    cmd.CommandText = "DELETE FROM Clientes Where Id=@Id";
-                    cmd.Parameters.AddWithValue("@Id", Id);
+                    cmd.CommandText = SQL;
                     cmd.ExecuteNonQuery();
-                }
+                };
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+        public static string Consulta(string SQL)
+        {
+            try
+            {
+                using (var cmd = new SQLiteCommand(DbConnection()))
+                {
+                    cmd.CommandText = SQL;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {                            
+                            return reader[0].ToString();
+                            // return reader["PathBase"].ToString();
+                        }
+                        return null;
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                return null;
+            }
+        }
+
     }
 }
 
