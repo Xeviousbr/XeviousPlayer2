@@ -30,42 +30,33 @@ namespace XeviousPlayer2
             string CaractsInvalidos = " -._(){}&";
             char AspaD = (Char)34;
             char Aspa = (Char)44;
-
             Nome = RetiraLetras(Nome, CaractsInvalidos);
             Nome = RetiraLetras(Nome, CaractsInvalidos, true);
             Nome = Nome.Replace(AspaD, Aspa);
             for (int a = 0; a < Nome.Length; a++)
             {
-                // char Letra = Nome[a];
                 char Letra = Convert.ToChar(Nome[a]);
-                // int codLetra = int.Parse(Letra);
+                codLetra = Convert.ToInt32(Letra);
+                if ((codLetra < 32) || (codLetra > 122))
+                {
+                    if (LetrasValidas.IndexOf(Letra)==-1)
+                    {
+                        char[] letras = Nome.ToCharArray();
+                        letras[a] = '_';
+                        Nome = new string(letras);
+                    }
+                }
             }
-            /*            
-                Letra = Mid(Nome, a, 1)
-                codLetra = Asc(Letra)
-                If codLetra < 32 Or codLetra > 122 Then
-                    If InStr(LetrasValidas, LCase(Letra)) = 0 Then
-                        Mid(Nome, a, 1) = "_"
-                    End If
-                End If
-            Next
-            NormalizaNome = Replace(Nome, "/", " ")
-            If Left(NormalizaNome, 2) = "0 " Then
-                NormalizaNome = Mid(NormalizaNome, 3)
-            End If
-             */
+            Nome = Nome.Replace(@"/", " ");
 
-            // Retirar o nome da banda do nome
+            // Verificar se os 3 primeiros caracteres são numericos, se for, retirar
+            // Verificar se os 2 primeiros caracteres são numericos, se for, retirar
+            if (Nome.Substring(2,2) == "0 ")
+                Nome = Nome.Substring(2);
 
-            //     'Retira caracteres inválidos no ínicio
-            // tNome = RetiraLetras(tNome, CaractsInvalidos)
+            // Retirar o nome da banda
 
-            //     tNome = Replace(tNome, "  ", " ")
-            // tNome = LimpaInicioDoNome(tNome)
-
-            // Caminho = Replace(Caminho, Aspa, AspaD)
-
-            return "";
+            return Nome;
         }
 
         #region Funções que podem ser públicas
@@ -89,7 +80,7 @@ namespace XeviousPlayer2
                         }
                     } else
                     {
-                        if (Texto[Texto.Length] == Letra)
+                        if (Texto[Texto.Length-1] == Letra)
                         {
                             Texto = Texto.Substring(0, Texto.Length-1);
                             Achou = true;
