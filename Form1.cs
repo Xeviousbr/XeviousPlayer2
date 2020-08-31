@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace XeviousPlayer2
 {
@@ -606,6 +607,8 @@ namespace XeviousPlayer2
             trackBar2.Scroll += TrackBar2_Scroll;   // see eventhandler below
             trackBar3.Scroll += TrackBar3_Scroll;   // see eventhandler below
 
+            ColocaSkin();
+
         }
 
         // Show display overlay at start up
@@ -901,73 +904,7 @@ namespace XeviousPlayer2
 
         // **** Controls Handling *********************************************************************
 
-        #region CheckBoxes
-
-        // Set player display overlay
-        private void CheckBox1_CheckedChanged(object sender, System.EventArgs e)
-        {
-            //if (checkBox1.Checked) myPlayer.Overlay.Window = myOverlay;
-            //else myPlayer.Overlay.Window = null;
-        }
-
-        // Set player display clones overlay
-        private void CheckBox2_CheckedChanged(object sender, System.EventArgs e)
-        {
-            //myPlayer.DisplayClones.ShowOverlay = checkBox2.Checked;
-        }
-
-        // Set position slider live update
-        private void CheckBox3_CheckedChanged(object sender, System.EventArgs e)
-        {
-            //myPlayer.Sliders.Position.LiveUpdate = checkBox3.Checked;
-        }
-
-        // Set taskbar progress indicator
-        private void TaskbarBox_CheckedChanged(object sender, System.EventArgs e)
-        {
-            //if (taskbarBox.Checked) myPlayer.TaskbarProgress.Add(this);
-            //else myPlayer.TaskbarProgress.Remove(this);
-        }
-
-        // Set display shape - using the preset display shapes
-        private void CheckBox4_CheckedChanged(object sender, System.EventArgs e)
-        {
-            if (++shapeStatus > 5) shapeStatus = 0;
-
-            switch (shapeStatus)
-            {
-                case 1: // oval shaped video and overlay
-                    myPlayer.Display.SetShape(DisplayShape.Oval, true, true);
-                    //panel2.BackColor = this.BackColor;
-                    //panel3.BackColor = this.BackColor;
-                    break;
-
-                case 3: // rounded rectangle shaped video and overlay
-                    myPlayer.Display.SetShape(DisplayShape.Rounded, true, true);
-                    //panel2.BackColor = this.BackColor;
-                    //panel3.BackColor = this.BackColor;
-                    break;
-
-                case 5: // star shaped video and overlay
-                    myPlayer.Display.SetShape(DisplayShape.Star, true, true);
-                    //panel2.BackColor = this.BackColor;
-                    //panel3.BackColor = this.BackColor;
-                    break;
-
-                default:
-                    // normal shaped display and overlay
-                    myPlayer.Display.SetShape(DisplayShape.Normal);
-                    //panel2.BackColor = Color.FromArgb(32, 32, 32);
-                    //panel3.BackColor = Color.FromArgb(32, 32, 32);
-                    break;
-            }
-        }
-
-        #endregion
-
-        #region Buttons
-
-        #endregion
+        #region Toolbar
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -1006,5 +943,32 @@ namespace XeviousPlayer2
             Config cConfig = new Config();
             cConfig.ShowDialog();
         }
+
+        #endregion
+
+        #region Inicializacao
+
+        private void ColocaSkin()
+        {
+            string SQL = "Select Skin From Config";
+            string ret = DalHelper.Consulta(SQL);
+            int Skin = int.Parse(ret);
+            using (var cmd = new SQLiteCommand(DalHelper.DbConnection()))
+            {
+                cmd.CommandText = "Select * From Skin Where ID = " + Skin;
+                using (SQLiteDataReader regSkin = cmd.ExecuteReader())
+                {
+                    regSkin.Read();
+                    int thiBacA = int.Parse(regSkin["thiBacA"].ToString());
+                    int thiBacB = int.Parse(regSkin["thiBacB"].ToString());
+                    int thiBacC = int.Parse(regSkin["thiBacC"].ToString());
+                    this.BackColor = Color.FromArgb(thiBacA, thiBacB, thiBacC);
+                }
+            }
+            // Colocar o resto das configurações de Skin
+        }
+
+        #endregion
+
     }
 }

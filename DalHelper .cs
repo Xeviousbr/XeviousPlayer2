@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace XeviousPlayer2
             return LocalBDlc;
         }
 
-        private static SQLiteConnection DbConnection()
+        public static SQLiteConnection DbConnection()
         {            
             sqliteConnection = new SQLiteConnection("Data Source="+ LocalBD+"; Version=3;");
             sqliteConnection.Open();
@@ -80,25 +81,25 @@ namespace XeviousPlayer2
         //    }
         //}
 
-        //public static DataTable GetCliente(int id)
-        //{
-        //    SQLiteDataAdapter da = null;
-        //    DataTable dt = new DataTable();
-        //    try
-        //    {
-        //        using (var cmd = DbConnection().CreateCommand())
-        //        {
-        //            cmd.CommandText = "SELECT * FROM Clientes Where Id=" + id;
-        //            da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
-        //            da.Fill(dt);
-        //            return dt;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public static DataTable getRecords(string SQL)
+        {
+            SQLiteDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                using (var cmd = DbConnection().CreateCommand())
+                {
+                    cmd.CommandText = SQL;
+                    da = new SQLiteDataAdapter(cmd.CommandText, DbConnection());
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         //public static void Add(Cliente cliente)
         //{
@@ -132,6 +133,32 @@ namespace XeviousPlayer2
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public static SQLiteDataReader TrazDados(string SQL)
+        {
+            try
+            {
+                using (var cmd = new SQLiteCommand(DbConnection()))
+                {
+                    cmd.CommandText = SQL;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        reader.Read();
+                        return reader;
+                    }
+                    //using (var reader = cmd.ExecuteReader())
+                    //{
+                    //    reader.Read();
+                    //    return reader;
+                    //}
+                };
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+                return null;
             }
         }
 

@@ -13,7 +13,7 @@ namespace XeviousPlayer2
         public Config()
         {
             InitializeComponent();
-            String ret = DalHelper.Consulta("Select PathBase From Config");
+            String ret = DalHelper.Consulta("Select PathBase From Config"); 
             if (ret!=null)
             {
                 textBox1.Text = ret;
