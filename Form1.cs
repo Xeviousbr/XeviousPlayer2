@@ -959,13 +959,20 @@ namespace XeviousPlayer2
                 using (SQLiteDataReader regSkin = cmd.ExecuteReader())
                 {
                     regSkin.Read();
-                    int thiBacA = int.Parse(regSkin["thiBacA"].ToString());
-                    int thiBacB = int.Parse(regSkin["thiBacB"].ToString());
-                    int thiBacC = int.Parse(regSkin["thiBacC"].ToString());
+                    int thiBacA = int.Parse(regSkin["labForA"].ToString());
+                    int thiBacB = int.Parse(regSkin["labForB"].ToString());
+                    int thiBacC = int.Parse(regSkin["labForC"].ToString());                    
+                    int panA = int.Parse(regSkin["panBacA"].ToString());
+                    int panB = int.Parse(regSkin["panBacB"].ToString());
+                    int panC = int.Parse(regSkin["panBacC"].ToString());                    
+                    int lvA = int.Parse(regSkin["thiBacA"].ToString());
+                    int lvB = int.Parse(regSkin["thiBacB"].ToString());
+                    int lvC = int.Parse(regSkin["thiBacC"].ToString());
                     this.BackColor = Color.FromArgb(thiBacA, thiBacB, thiBacC);
+                    this.panel1.BackColor = Color.FromArgb(panA, panB, panC);
+                    this.listView.BackColor = Color.FromArgb(lvA, lvB, lvC);
                 }
             }
-            // Colocar o resto das configurações de Skin
         }
 
         #endregion
