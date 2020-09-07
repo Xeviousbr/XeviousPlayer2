@@ -45,11 +45,14 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -65,7 +68,7 @@
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.label1.Location = new System.Drawing.Point(16, 40);
+            this.label1.Location = new System.Drawing.Point(514, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 22);
             this.label1.TabIndex = 1;
@@ -76,7 +79,7 @@
             // 
             this.lbMusica.AutoSize = true;
             this.lbMusica.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.lbMusica.Location = new System.Drawing.Point(12, 11);
+            this.lbMusica.Location = new System.Drawing.Point(20, 93);
             this.lbMusica.Name = "lbMusica";
             this.lbMusica.Size = new System.Drawing.Size(51, 16);
             this.lbMusica.TabIndex = 0;
@@ -94,7 +97,7 @@
             // 
             // trackBar3
             // 
-            this.trackBar3.Location = new System.Drawing.Point(642, 17);
+            this.trackBar3.Location = new System.Drawing.Point(591, 80);
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(145, 45);
             this.trackBar3.TabIndex = 2;
@@ -133,9 +136,9 @@
             // 
             this.listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(16, 82);
+            this.listView.Location = new System.Drawing.Point(16, 131);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(720, 442);
+            this.listView.Size = new System.Drawing.Size(720, 393);
             this.listView.TabIndex = 2;
             this.listView.UseCompatibleStateImageBehavior = false;
             // 
@@ -210,12 +213,33 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(125, 17);
             this.toolStripStatusLabel1.Text = "Aguardando operação";
             // 
+            // toolStrip2
+            // 
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton5});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(799, 39);
+            this.toolStrip2.TabIndex = 15;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton5.Text = "toolStripButton5";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(799, 668);
+            this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
@@ -243,6 +267,8 @@
             this.toolStrip1.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,6 +291,8 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
     }
 }
 
