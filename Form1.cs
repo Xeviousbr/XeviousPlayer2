@@ -904,7 +904,17 @@ namespace XeviousPlayer2
 
         // **** Controls Handling *********************************************************************
 
-        #region Toolbar
+        #region Toolbar de cima
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            PlayMedia();
+            Tocando = true;
+        }
+
+        #endregion
+
+        #region Toolbar de baixo
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -935,7 +945,6 @@ namespace XeviousPlayer2
                 PlayMedia();
                 Tocando = true;
             }
-            // PauseMedia();
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -976,6 +985,6 @@ namespace XeviousPlayer2
         }
 
         #endregion
-
+        
     }
 }

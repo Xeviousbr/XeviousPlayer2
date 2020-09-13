@@ -16,6 +16,7 @@ using PVS.MediaPlayer;
 [   ] Utilizar os controles como no exemplo
 [   ] Preparar o espaço para a visualização
 [   ] Colocar a visualização
+[   ] Terminar a importação
 [   ] Colocar o recurso de tela inteira
 [   ] Colocar o recurso de visualização acoplada
  */
