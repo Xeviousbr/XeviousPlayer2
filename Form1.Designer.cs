@@ -41,7 +41,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
@@ -65,6 +64,7 @@
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -183,7 +183,7 @@
             this.toolStripButton21});
             this.toolStrip1.Location = new System.Drawing.Point(150, 562);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(454, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(511, 39);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -195,6 +195,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton1.Text = "Toca";
+            this.toolStripButton1.ToolTipText = "Abrir arquivo";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton2
@@ -205,25 +206,18 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton2.Text = "Pausa";
+            this.toolStripButton2.ToolTipText = "Microfone";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Enabled = false;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 36);
-            this.toolStripButton3.Text = "Pausa";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton4
             // 
             this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 36);
+            this.toolStripButton4.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.ToolTipText = "Vai para traz";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton13
@@ -234,6 +228,7 @@
             this.toolStripButton13.Name = "toolStripButton13";
             this.toolStripButton13.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton13.Text = "toolStripButton13";
+            this.toolStripButton13.ToolTipText = "Musica Anterior";
             this.toolStripButton13.Click += new System.EventHandler(this.toolStripButton13_Click);
             // 
             // toolStripButton14
@@ -244,6 +239,7 @@
             this.toolStripButton14.Name = "toolStripButton14";
             this.toolStripButton14.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton14.Text = "toolStripButton14";
+            this.toolStripButton14.ToolTipText = "Parar";
             this.toolStripButton14.Click += new System.EventHandler(this.toolStripButton14_Click);
             // 
             // toolStripButton15
@@ -254,6 +250,7 @@
             this.toolStripButton15.Name = "toolStripButton15";
             this.toolStripButton15.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton15.Text = "toolStripButton15";
+            this.toolStripButton15.ToolTipText = "Tocar";
             this.toolStripButton15.Click += new System.EventHandler(this.toolStripButton15_Click);
             // 
             // toolStripButton16
@@ -264,6 +261,7 @@
             this.toolStripButton16.Name = "toolStripButton16";
             this.toolStripButton16.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton16.Text = "toolStripButton16";
+            this.toolStripButton16.ToolTipText = "Pausa";
             this.toolStripButton16.Click += new System.EventHandler(this.toolStripButton16_Click);
             // 
             // toolStripButton17
@@ -274,6 +272,7 @@
             this.toolStripButton17.Name = "toolStripButton17";
             this.toolStripButton17.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton17.Text = "toolStripButton17";
+            this.toolStripButton17.ToolTipText = "Gravar";
             this.toolStripButton17.Click += new System.EventHandler(this.toolStripButton17_Click);
             // 
             // toolStripButton18
@@ -284,6 +283,7 @@
             this.toolStripButton18.Name = "toolStripButton18";
             this.toolStripButton18.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton18.Text = "toolStripButton18";
+            this.toolStripButton18.ToolTipText = "Próxima Musica";
             this.toolStripButton18.Click += new System.EventHandler(this.toolStripButton18_Click);
             // 
             // toolStripButton19
@@ -294,6 +294,7 @@
             this.toolStripButton19.Name = "toolStripButton19";
             this.toolStripButton19.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton19.Text = "toolStripButton19";
+            this.toolStripButton19.ToolTipText = "Avança";
             this.toolStripButton19.Click += new System.EventHandler(this.toolStripButton19_Click);
             // 
             // toolStripButton20
@@ -304,6 +305,7 @@
             this.toolStripButton20.Name = "toolStripButton20";
             this.toolStripButton20.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton20.Text = "toolStripButton20";
+            this.toolStripButton20.ToolTipText = "Aciona Volume";
             this.toolStripButton20.Click += new System.EventHandler(this.toolStripButton20_Click);
             // 
             // toolStripButton21
@@ -314,6 +316,7 @@
             this.toolStripButton21.Name = "toolStripButton21";
             this.toolStripButton21.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton21.Text = "toolStripButton21";
+            this.toolStripButton21.ToolTipText = "Compartilhar";
             this.toolStripButton21.Click += new System.EventHandler(this.toolStripButton21_Click);
             // 
             // statusStrip
@@ -435,6 +438,17 @@
             this.pictureBox2.TabIndex = 17;
             this.pictureBox2.TabStop = false;
             // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton3.Text = "Pausa";
+            this.toolStripButton3.ToolTipText = "Reiniciar";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -493,7 +507,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel Status;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
@@ -517,6 +530,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton21;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
     }
 }
 
