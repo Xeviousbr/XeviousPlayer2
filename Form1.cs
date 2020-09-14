@@ -685,14 +685,15 @@ namespace XeviousPlayer2
                         if (metaData.Image==null)
                         {
                             panel1.Visible = false;
-                            listView.Height = 446;
+                            //listView.Height = 446;
                         } else
                         {
                             panel1.Visible = true;
-                            listView.Height = 259;
+                            //listView.Height = 259;
                             panel1.BackgroundImage = metaData.Image;
                             myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
-                        }                                                
+                        }
+                        Status.Text = "Tocando " + metaData.Title + " de " + metaData.Artist;
                     }
                 }
             }
@@ -918,7 +919,8 @@ namespace XeviousPlayer2
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            if (Tocando)
+            PlayMedia();
+            /* if (Tocando)
             {
                 if (myPlayer.Paused)
                 {
@@ -931,12 +933,13 @@ namespace XeviousPlayer2
             {
                 PlayMedia();
                 Tocando = true;
-            }
+            } */
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            if (Tocando)
+            // Aciona o Microfone
+            /* if (Tocando)
             {
                 myPlayer.Paused = !myPlayer.Paused;
             }
@@ -944,13 +947,67 @@ namespace XeviousPlayer2
             {
                 PlayMedia();
                 Tocando = true;
-            }
+            } */
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            Config cConfig = new Config();
-            cConfig.ShowDialog();
+            // Musica Anterior
+            /* Config cConfig = new Config();
+            cConfig.ShowDialog(); */
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            // Recarrega
+        }
+
+        private void toolStripButton13_Click(object sender, EventArgs e)
+        {
+            // Musica anterior
+        }
+
+        private void toolStripButton14_Click(object sender, EventArgs e)
+        {
+            // Parar, mas acho não precisamos realmente do comando parar
+            myPlayer.Paused = true;
+        }
+
+        private void toolStripButton15_Click(object sender, EventArgs e)
+        {
+            // Continua
+            myPlayer.Paused = false;
+        }
+
+        private void toolStripButton16_Click(object sender, EventArgs e)
+        {
+            // Pausa
+            myPlayer.Paused = true;
+        }
+
+        private void toolStripButton17_Click(object sender, EventArgs e)
+        {
+            // Gravar
+        }
+
+        private void toolStripButton18_Click(object sender, EventArgs e)
+        {
+            // Próxima musica
+        }
+
+        private void toolStripButton19_Click(object sender, EventArgs e)
+        {
+            // ir a frente
+        }
+
+        private void toolStripButton20_Click(object sender, EventArgs e)
+        {
+            // mostrar ou esconder o controle de volume
+        }
+
+        private void toolStripButton21_Click(object sender, EventArgs e)
+        {
+            // Compartilhar
         }
 
         #endregion
@@ -985,6 +1042,6 @@ namespace XeviousPlayer2
         }
 
         #endregion
-        
+
     }
 }

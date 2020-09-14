@@ -4,8 +4,6 @@ using PVS.MediaPlayer;
 
 // https://www.codeproject.com/Articles/109714/PVS-MediaPlayer-Audio-and-Video-Player-Library
 
-// https://cursos.alura.com.br/forum/topico-subir-um-projeto-existente-para-o-github-64968
-
 /*
 [   ] Colocar a barra de cima
 [   ] Colocar a foto
