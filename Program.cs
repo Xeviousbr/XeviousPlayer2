@@ -5,12 +5,13 @@ using PVS.MediaPlayer;
 // https://www.codeproject.com/Articles/109714/PVS-MediaPlayer-Audio-and-Video-Player-Library
 
 /*
-[   ] Colocar a barra de cima
-[   ] Colocar a foto
+[ x ] Colocar a barra de cima
+      [   ] Falta colocar os icones
 [   ] Colocar os dados da musica
+[   ] Colocar a foto
 [   ] Colocar a grid
 [   ] Ajustar o estilo da Grid
-[   ] Colocar os botões em baixo
+[ x ] Colocar os botões em baixo
 [   ] Utilizar os controles como no exemplo
 [   ] Preparar o espaço para a visualização
 [   ] Colocar a visualização

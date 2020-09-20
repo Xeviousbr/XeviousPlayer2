@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbMusica = new System.Windows.Forms.Label();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -41,6 +40,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
@@ -64,7 +64,35 @@
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lbArtista = new System.Windows.Forms.Label();
+            this.lbMusica = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Label = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -73,6 +101,9 @@
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -87,23 +118,14 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.label1.Location = new System.Drawing.Point(514, 93);
+            this.label1.Location = new System.Drawing.Point(557, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 22);
+            this.label1.Size = new System.Drawing.Size(145, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "00:00:00";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMusica
-            // 
-            this.lbMusica.AutoSize = true;
-            this.lbMusica.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(173)))), ((int)(((byte)(146)))));
-            this.lbMusica.Location = new System.Drawing.Point(20, 93);
-            this.lbMusica.Name = "lbMusica";
-            this.lbMusica.Size = new System.Drawing.Size(51, 16);
-            this.lbMusica.TabIndex = 0;
-            this.lbMusica.Text = "Musica";
             // 
             // trackBar2
             // 
@@ -117,7 +139,7 @@
             // 
             // trackBar3
             // 
-            this.trackBar3.Location = new System.Drawing.Point(591, 80);
+            this.trackBar3.Location = new System.Drawing.Point(557, 58);
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(145, 45);
             this.trackBar3.TabIndex = 2;
@@ -156,9 +178,9 @@
             // 
             this.listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(16, 131);
+            this.listView.Location = new System.Drawing.Point(16, 219);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(720, 393);
+            this.listView.Size = new System.Drawing.Size(720, 305);
             this.listView.TabIndex = 2;
             this.listView.UseCompatibleStateImageBehavior = false;
             // 
@@ -183,7 +205,7 @@
             this.toolStripButton21});
             this.toolStrip1.Location = new System.Drawing.Point(150, 562);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(511, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(480, 39);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -208,6 +230,17 @@
             this.toolStripButton2.Text = "Pausa";
             this.toolStripButton2.ToolTipText = "Microfone";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton3.Text = "Pausa";
+            this.toolStripButton3.ToolTipText = "Reiniciar";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton4
             // 
@@ -325,7 +358,7 @@
             this.Status});
             this.statusStrip.Location = new System.Drawing.Point(0, 634);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(799, 22);
+            this.statusStrip.Size = new System.Drawing.Size(795, 22);
             this.statusStrip.TabIndex = 14;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -349,7 +382,7 @@
             this.toolStripButton12});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(799, 39);
+            this.toolStrip2.Size = new System.Drawing.Size(795, 39);
             this.toolStrip2.TabIndex = 15;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -438,23 +471,314 @@
             this.pictureBox2.TabIndex = 17;
             this.pictureBox2.TabStop = false;
             // 
-            // toolStripButton3
+            // panel2
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton3.Text = "Pausa";
-            this.toolStripButton3.ToolTipText = "Reiniciar";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.panel2.Controls.Add(this.label25);
+            this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.label23);
+            this.panel2.Controls.Add(this.label22);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label21);
+            this.panel2.Controls.Add(this.label20);
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.trackBar3);
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.lbArtista);
+            this.panel2.Controls.Add(this.lbMusica);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.Label);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.pictureBox4);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Location = new System.Drawing.Point(16, 54);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(720, 159);
+            this.panel2.TabIndex = 18;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(527, 130);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(15, 16);
+            this.label25.TabIndex = 27;
+            this.label25.Text = "?";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(417, 104);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(15, 16);
+            this.label24.TabIndex = 26;
+            this.label24.Text = "?";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(420, 81);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(15, 16);
+            this.label23.TabIndex = 25;
+            this.label23.Text = "?";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(456, 58);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(15, 16);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "?";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(445, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(15, 16);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "?";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(405, 12);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(15, 16);
+            this.label21.TabIndex = 22;
+            this.label21.Text = "?";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(240, 127);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(15, 16);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "?";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(235, 104);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(15, 16);
+            this.label19.TabIndex = 20;
+            this.label19.Text = "?";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(207, 81);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(15, 16);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "?";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(215, 58);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(15, 16);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "?";
+            // 
+            // lbArtista
+            // 
+            this.lbArtista.AutoSize = true;
+            this.lbArtista.Location = new System.Drawing.Point(215, 35);
+            this.lbArtista.Name = "lbArtista";
+            this.lbArtista.Size = new System.Drawing.Size(15, 16);
+            this.lbArtista.TabIndex = 17;
+            this.lbArtista.Text = "?";
+            // 
+            // lbMusica
+            // 
+            this.lbMusica.AutoSize = true;
+            this.lbMusica.Location = new System.Drawing.Point(210, 12);
+            this.lbMusica.Name = "lbMusica";
+            this.lbMusica.Size = new System.Drawing.Size(15, 16);
+            this.lbMusica.TabIndex = 16;
+            this.lbMusica.Text = "?";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(361, 130);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(160, 16);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "Taxa de Amostragem:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(361, 104);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(50, 16);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Local:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(361, 81);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 16);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Canais: ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(361, 58);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 16);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Taxa de Bits:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(361, 35);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(83, 16);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Criado em:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(361, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 16);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Tipo:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(167, 104);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 16);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Duração:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(165, 127);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 16);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Tamanho:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(167, 81);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 16);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Ano:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(165, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 16);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Album:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(165, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 16);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Artista";
+            // 
+            // Label
+            // 
+            this.Label.AutoSize = true;
+            this.Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label.Location = new System.Drawing.Point(165, 12);
+            this.Label.Name = "Label";
+            this.Label.Size = new System.Drawing.Size(57, 16);
+            this.Label.TabIndex = 4;
+            this.Label.Text = "Nome: ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(584, 130);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(105, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Ocultar detalhes";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::XeviousPlayer2.Properties.Resources.collapse_arrow_127px;
+            this.pictureBox4.Location = new System.Drawing.Point(695, 128);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(22, 18);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(7, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(142, 132);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "label2";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(799, 656);
+            this.ClientSize = new System.Drawing.Size(795, 656);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolStrip2);
@@ -462,13 +786,10 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView);
-            this.Controls.Add(this.trackBar3);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.trackBar2);
-            this.Controls.Add(this.lbMusica);
-            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.GrayText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -489,6 +810,10 @@
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,7 +822,6 @@
         #endregion
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbMusica;
         private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.TrackBar trackBar3;
         private System.Windows.Forms.Panel panel4;
@@ -531,6 +855,35 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label Label;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbArtista;
+        private System.Windows.Forms.Label lbMusica;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
     }
 }
 

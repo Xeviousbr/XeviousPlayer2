@@ -694,6 +694,8 @@ namespace XeviousPlayer2
                             myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
                         }
                         Status.Text = "Tocando " + metaData.Title + " de " + metaData.Artist;
+                        lbMusica.Text = metaData.Title;
+                        lbArtista.Text = metaData.Artist;
                     }
                 }
             }
