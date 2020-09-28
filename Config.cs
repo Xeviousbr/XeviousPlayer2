@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Data.SQLite;
-using System.IO;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace XeviousPlayer2
 {
@@ -19,6 +18,7 @@ namespace XeviousPlayer2
                 textBox1.Text = ret;
                 vazio = false;
             }
+            ColocaSkin();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -49,6 +49,37 @@ namespace XeviousPlayer2
             //}
             this.Close();
         }
+
+        private void ColocaSkin()
+        {
+            // Por enquanto tem só duas telas que usam o Skin
+            // Mas se tiver mais o ideal é colocar numa classe específica
+            string SQL = "Select Skin From Config";
+            string ret = DalHelper.Consulta(SQL);
+            int Skin = int.Parse(ret);
+            using (var cmd = new SQLiteCommand(DalHelper.DbConnection()))
+            {
+                cmd.CommandText = "Select * From Skin Where ID = " + Skin;
+                using (SQLiteDataReader regSkin = cmd.ExecuteReader())
+                {
+                    regSkin.Read();
+                    int thiBacA = int.Parse(regSkin["labForA"].ToString());
+                    int thiBacB = int.Parse(regSkin["labForB"].ToString());
+                    int thiBacC = int.Parse(regSkin["labForC"].ToString());
+                    //int panA = int.Parse(regSkin["panBacA"].ToString());
+                    //int panB = int.Parse(regSkin["panBacB"].ToString());
+                    //int panC = int.Parse(regSkin["panBacC"].ToString());
+                    int lvA = int.Parse(regSkin["thiBacA"].ToString());
+                    int lvB = int.Parse(regSkin["thiBacB"].ToString());
+                    int lvC = int.Parse(regSkin["thiBacC"].ToString());
+                    this.BackColor = Color.FromArgb(thiBacA, thiBacB, thiBacC);
+                    button1.BackColor = Color.FromArgb(lvA, lvB, lvC);
+                    button2.BackColor = button1.BackColor;
+                    button3.BackColor = button1.BackColor;
+                }
+            }
+        }
+
 
     }
 

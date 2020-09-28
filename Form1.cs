@@ -694,8 +694,12 @@ namespace XeviousPlayer2
                             myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
                         }
                         Status.Text = "Tocando " + metaData.Title + " de " + metaData.Artist;
-                        lbMusica.Text = metaData.Title;
+                        // myPlayer.Pause();
+                        lbMusica.Text = Gen.TrataNome(metaData.Title, metaData.Artist);
                         lbArtista.Text = metaData.Artist;
+                        lbAlbum.Text = metaData.Album;
+                        lbGenero.Text = metaData.Genre;
+                        lbAno.Text = metaData.Year;                        
                     }
                 }
             }
@@ -941,22 +945,11 @@ namespace XeviousPlayer2
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             // Aciona o Microfone
-            /* if (Tocando)
-            {
-                myPlayer.Paused = !myPlayer.Paused;
-            }
-            else
-            {
-                PlayMedia();
-                Tocando = true;
-            } */
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             // Musica Anterior
-            /* Config cConfig = new Config();
-            cConfig.ShowDialog(); */
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -1012,12 +1005,21 @@ namespace XeviousPlayer2
             // Compartilhar
         }
 
+        private void toolStripButton22_Click(object sender, EventArgs e)
+        {
+            // Configurações
+            Config cConfig = new Config();
+            cConfig.ShowDialog();
+        }
+
         #endregion
 
         #region Inicializacao
 
         private void ColocaSkin()
         {
+            // Por enquanto tem só duas telas que usam o Skin
+            // Mas se tiver mais o ideal é colocar numa classe específica
             string SQL = "Select Skin From Config";
             string ret = DalHelper.Consulta(SQL);
             int Skin = int.Parse(ret);

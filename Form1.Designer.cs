@@ -51,6 +51,7 @@
             this.toolStripButton19 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton20 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton21 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton22 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.Status = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -65,22 +66,20 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lbAno = new System.Windows.Forms.Label();
+            this.lbGenero = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lbAlbum = new System.Windows.Forms.Label();
             this.lbArtista = new System.Windows.Forms.Label();
             this.lbMusica = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -92,7 +91,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -202,10 +200,11 @@
             this.toolStripButton18,
             this.toolStripButton19,
             this.toolStripButton20,
-            this.toolStripButton21});
+            this.toolStripButton21,
+            this.toolStripButton22});
             this.toolStrip1.Location = new System.Drawing.Point(150, 562);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(480, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(516, 39);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -352,6 +351,16 @@
             this.toolStripButton21.ToolTipText = "Compartilhar";
             this.toolStripButton21.Click += new System.EventHandler(this.toolStripButton21_Click);
             // 
+            // toolStripButton22
+            // 
+            this.toolStripButton22.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton22.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton22.Image")));
+            this.toolStripButton22.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton22.Name = "toolStripButton22";
+            this.toolStripButton22.Size = new System.Drawing.Size(36, 36);
+            this.toolStripButton22.Text = "toolStripButton22";
+            this.toolStripButton22.Click += new System.EventHandler(this.toolStripButton22_Click);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -388,9 +397,10 @@
             // 
             // toolStripButton5
             // 
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(53, 36);
+            this.toolStripButton5.Size = new System.Drawing.Size(85, 36);
             this.toolStripButton5.Text = "Arquivo";
             this.toolStripButton5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
@@ -473,24 +483,22 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label25);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label24);
-            this.panel2.Controls.Add(this.label23);
-            this.panel2.Controls.Add(this.label22);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label21);
+            this.panel2.Controls.Add(this.lbAno);
+            this.panel2.Controls.Add(this.lbGenero);
             this.panel2.Controls.Add(this.label20);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.trackBar3);
-            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.lbAlbum);
             this.panel2.Controls.Add(this.lbArtista);
             this.panel2.Controls.Add(this.lbMusica);
-            this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
@@ -507,59 +515,70 @@
             this.panel2.Size = new System.Drawing.Size(720, 159);
             this.panel2.TabIndex = 18;
             // 
-            // label25
+            // label15
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(527, 130);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(15, 16);
-            this.label25.TabIndex = 27;
-            this.label25.Text = "?";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(483, 127);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(15, 16);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "?";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(359, 127);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(114, 16);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Quando Tocou:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(463, 104);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 16);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "?";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(359, 104);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(107, 16);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Vezes tocado:";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(417, 104);
+            this.label24.Location = new System.Drawing.Point(415, 81);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(15, 16);
             this.label24.TabIndex = 26;
             this.label24.Text = "?";
             // 
-            // label23
+            // lbAno
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(420, 81);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(15, 16);
-            this.label23.TabIndex = 25;
-            this.label23.Text = "?";
+            this.lbAno.AutoSize = true;
+            this.lbAno.Location = new System.Drawing.Point(448, 58);
+            this.lbAno.Name = "lbAno";
+            this.lbAno.Size = new System.Drawing.Size(15, 16);
+            this.lbAno.TabIndex = 23;
+            this.lbAno.Text = "?";
             // 
-            // label22
+            // lbGenero
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(456, 58);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(15, 16);
-            this.label22.TabIndex = 24;
-            this.label22.Text = "?";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(445, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(15, 16);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "?";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(405, 12);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(15, 16);
-            this.label21.TabIndex = 22;
-            this.label21.Text = "?";
+            this.lbGenero.AutoSize = true;
+            this.lbGenero.Location = new System.Drawing.Point(403, 35);
+            this.lbGenero.Name = "lbGenero";
+            this.lbGenero.Size = new System.Drawing.Size(15, 16);
+            this.lbGenero.TabIndex = 22;
+            this.lbGenero.Text = "?";
             // 
             // label20
             // 
@@ -588,14 +607,14 @@
             this.label18.TabIndex = 19;
             this.label18.Text = "?";
             // 
-            // label17
+            // lbAlbum
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(215, 58);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(15, 16);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "?";
+            this.lbAlbum.AutoSize = true;
+            this.lbAlbum.Location = new System.Drawing.Point(215, 58);
+            this.lbAlbum.Name = "lbAlbum";
+            this.lbAlbum.Size = new System.Drawing.Size(15, 16);
+            this.lbAlbum.TabIndex = 18;
+            this.lbAlbum.Text = "?";
             // 
             // lbArtista
             // 
@@ -615,51 +634,21 @@
             this.lbMusica.TabIndex = 16;
             this.lbMusica.Text = "?";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(361, 130);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(160, 16);
-            this.label15.TabIndex = 15;
-            this.label15.Text = "Taxa de Amostragem:";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(361, 104);
+            this.label14.Location = new System.Drawing.Point(359, 81);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(50, 16);
             this.label14.TabIndex = 14;
             this.label14.Text = "Local:";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(361, 81);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 16);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Canais: ";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(361, 58);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 16);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Taxa de Bits:";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(361, 35);
+            this.label11.Location = new System.Drawing.Point(359, 58);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 16);
             this.label11.TabIndex = 11;
@@ -669,7 +658,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(361, 12);
+            this.label10.Location = new System.Drawing.Point(359, 35);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 16);
             this.label10.TabIndex = 10;
@@ -762,22 +751,12 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 16);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "label2";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(795, 656);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -797,7 +776,7 @@
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Xevious 2.0";
+            this.Text = "XeviousPlayer 2.0";
             this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
@@ -867,23 +846,21 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label Label;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lbAno;
+        private System.Windows.Forms.Label lbGenero;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbAlbum;
         private System.Windows.Forms.Label lbArtista;
         private System.Windows.Forms.Label lbMusica;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ToolStripButton toolStripButton22;
     }
 }
 
