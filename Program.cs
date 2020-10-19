@@ -6,8 +6,8 @@ using PVS.MediaPlayer;
 
 /*
 [ x ] Colocar a barra de cima
-      [   ] Falta colocar os icones
-[   ] Colocar os dados da musica
+      [ x ] Falta colocar os icones
+[ x ] Colocar os dados da musica
 [   ] Colocar a foto
 [   ] Colocar a grid
 [   ] Ajustar o estilo da Grid
@@ -49,3 +49,29 @@ namespace XeviousPlayer2
         }
     }
 }
+
+/*
+ List<ApiManagerDoor> doors = new List<ApiManagerDoor>();            
+
+            SQLiteCommand command = new SQLiteCommand("SELECT d.controller_id,z.name AS zone_name,d.id AS door_id,d.name AS door_name FROM doors AS d LEFT JOIN zones AS z ON d.zone_id = z.id LEFT JOIN accounts AS a ON z.account_id = a.id WHERE a.token = '" + token + "' AND a.status = 1", DBSqlite.connection);
+
+            using (DbDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        ApiManagerDoor door = new ApiManagerDoor { status = 0 };                                                
+                        
+                        door.serverId = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                        door.zoneName = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                        door.doorId = reader.IsDBNull(2) ? 0 : reader.GetInt32(2);
+                        door.doorName = reader.IsDBNull(3) ? "Porta " + door.doorId.ToString() : reader.GetString(3);                        
+
+                        doors.Add(door);
+                    }
+                }
+            }
+
+            return doors;
+ */

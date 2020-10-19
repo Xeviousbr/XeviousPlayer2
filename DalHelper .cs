@@ -12,7 +12,7 @@ namespace XeviousPlayer2
 {
     public static class DalHelper
     {
-        private static SQLiteConnection sqliteConnection;
+        public static SQLiteConnection sqliteConnection;
         private static string LocalBDlc="";
         public static string LocalBD { get => getLocalBD(); }
 
@@ -43,6 +43,7 @@ namespace XeviousPlayer2
                 string erro = ex.Message;
                 throw;
             }
+
         }
 
         /* public static void CriarTabelaSQlite()

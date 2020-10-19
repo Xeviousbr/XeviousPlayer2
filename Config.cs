@@ -2,6 +2,8 @@
 using System.Data.SQLite;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Data;
+using System.Data.Common;
 
 namespace XeviousPlayer2
 {
@@ -12,13 +14,11 @@ namespace XeviousPlayer2
         public Config()
         {
             InitializeComponent();
-            String ret = DalHelper.Consulta("Select PathBase From Config"); 
-            if (ret!=null)
-            {
-                textBox1.Text = ret;
-                vazio = false;
-            }
-            ColocaSkin();
+            tbs.tbConfig Config = new tbs.tbConfig();
+            textBox1.Text = Config.PathBase;
+            cbSkin.SelectedIndex = Config.Skin;
+            vazio = false;
+            ColocaSkin(Config.Skin);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -50,13 +50,8 @@ namespace XeviousPlayer2
             this.Close();
         }
 
-        private void ColocaSkin()
+        private void ColocaSkin(int Skin)
         {
-            // Por enquanto tem só duas telas que usam o Skin
-            // Mas se tiver mais o ideal é colocar numa classe específica
-            string SQL = "Select Skin From Config";
-            string ret = DalHelper.Consulta(SQL);
-            int Skin = int.Parse(ret);
             using (var cmd = new SQLiteCommand(DalHelper.DbConnection()))
             {
                 cmd.CommandText = "Select * From Skin Where ID = " + Skin;

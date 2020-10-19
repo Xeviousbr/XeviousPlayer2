@@ -699,7 +699,10 @@ namespace XeviousPlayer2
                         lbArtista.Text = metaData.Artist;
                         lbAlbum.Text = metaData.Album;
                         lbGenero.Text = metaData.Genre;
-                        lbAno.Text = metaData.Year;                        
+                        lbAno.Text = metaData.Year; 
+
+                        // Pesquisar na base de dados, se tem a musica
+                        // Se tiver, colocar as informações 
                     }
                 }
             }
