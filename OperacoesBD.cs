@@ -20,9 +20,7 @@ namespace XeviousPlayer2
             tbM.TemImagem = data.Image == null ? 0 : 1;
             tbM.Tamanho = Tam;
             tbM.Lugar = lugar;
-
             tbM.Nome = Gen.TrataNome(tbM.Nome, tbM.Banda);
-
             tbM.Adiciona();
         }
 

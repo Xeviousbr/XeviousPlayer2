@@ -61,9 +61,6 @@ namespace XeviousPlayer2
                     int thiBacA = int.Parse(regSkin["labForA"].ToString());
                     int thiBacB = int.Parse(regSkin["labForB"].ToString());
                     int thiBacC = int.Parse(regSkin["labForC"].ToString());
-                    //int panA = int.Parse(regSkin["panBacA"].ToString());
-                    //int panB = int.Parse(regSkin["panBacB"].ToString());
-                    //int panC = int.Parse(regSkin["panBacC"].ToString());
                     int lvA = int.Parse(regSkin["thiBacA"].ToString());
                     int lvB = int.Parse(regSkin["thiBacB"].ToString());
                     int lvC = int.Parse(regSkin["thiBacC"].ToString());
@@ -71,11 +68,17 @@ namespace XeviousPlayer2
                     button1.BackColor = Color.FromArgb(lvA, lvB, lvC);
                     button2.BackColor = button1.BackColor;
                     button3.BackColor = button1.BackColor;
+                    button4.BackColor = button1.BackColor;
                 }
             }
         }
 
-
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Gen.PastaMp3 = textBox1.Text;
+            AdicionaMusicas fAdi = new AdicionaMusicas();
+            fAdi.ShowDialog();
+        }
     }
 
 }

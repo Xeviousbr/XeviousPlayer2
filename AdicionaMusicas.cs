@@ -93,6 +93,12 @@ namespace XeviousPlayer2
             VeTotal(Gen.PastaMp3);
             label1.Text = "Quantidade localizada : " + Quant.ToString();
             progressBar1.Maximum = Quant;
+
+            // Apaga a tabela de musicas a fim de testes
+            // Na versão final deve ter uma opção para zerar a base de dados caso o usuário queira
+            // mas a importação deve ser sempre incremental
+            DalHelper.ExecSql("Delete from Musicas");
+
             BuscaMusicas(Gen.PastaMp3);
             this.Close();
         }
