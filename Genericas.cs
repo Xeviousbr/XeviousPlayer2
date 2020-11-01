@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace XeviousPlayer2
 {
@@ -81,11 +78,13 @@ namespace XeviousPlayer2
                     char Letra = letras[i];
                     if (Finais == false)
                     {
-                        if (Texto[1] == Letra)
-                        {
-                            Texto = Texto.Substring(2);
-                            Achou = true;
-                        }
+                        // if (Texto[1]!=null)
+                        if (Texto!=null)
+                            if (Texto[1] == Letra)
+                            {
+                                Texto = Texto.Substring(2);
+                                Achou = true;
+                            }
                     }
                     else
                     {

@@ -26,11 +26,20 @@ namespace XeviousPlayer2
                 DirectoryInfo dirInfo = new DirectoryInfo(sPath);
                 foreach (FileInfo Arq in dirInfo.GetFiles())
                 {
+                    //if (Lidos == 13)
+                    //{
+                    //    int x = 0;
+                    //}
                     if (Gen.OPENMEDIA_DIALOG_FILTER.Contains(Arq.Extension))
                     {
-                        leMusica(Arq);
+                        if (Arq.Length>0) 
+                            leMusica(Arq);
                     }
                     Lidos++;
+                    //if (Lidos>1000)
+                    //{
+                    //    int x = 0;
+                    //}
                     progressBar1.Value = Lidos;
                 }
                 //sFileList.AddRange(dirInfo.GetFiles());

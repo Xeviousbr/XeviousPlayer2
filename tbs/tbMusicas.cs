@@ -24,11 +24,15 @@ namespace XeviousPlayer2
             get { return getNome(); }
             set { SetaNome(value); }
         }
-        public string Banda
+
+        public int Banda { get; set; }
+        /* public int Banda
         {
             get { return getBanda(); }
             set { SetaBanda(value); }
-        }
+        } */
+        public string NomeBanda { get; set; }
+
         public int Ano
         {
             get { return lcAno; }
@@ -53,22 +57,33 @@ namespace XeviousPlayer2
             }            
         }
 
-        private int SetaBanda(string nome)
+        public int SetaBanda(string bandaTemp)
         {
-            if (nome== "Mp3")
+            bool MusValida = true;
+            if (bandaTemp.Length < 3) MusValida = false;
+            if (bandaTemp == "Mp3") MusValida = false;
+            if (MusValida == false)
             {
-                // Pegar o nome da banda pelo nome
-                nome = lcNmBanda;
-            } 
-            // Pegar o ID da banda e colocar em Banda
-            // Se não tem, adicionar e pegar o ID            
+                int PosHifen = Nome.IndexOf('-');
+                if (PosHifen > -1) 
+                {
+                    int PosUltHifen = Nome.LastIndexOf('-');
+                    if (PosUltHifen!= PosHifen)
+                        NomeBanda = Nome.Substring(PosUltHifen+2);
+                    else
+                        NomeBanda = Nome.Substring(PosHifen+2);
+                    
+                } 
+            } else
+            {
+                NomeBanda = bandaTemp;
+            }
             return 0;
         }
 
         private string getBanda()
         {
-            // localiza a banda a partir de lcBanda
-            return "";
+            return lcNmBanda;
         }
 
         public void SetaGenero(string nome)
@@ -98,9 +113,10 @@ namespace XeviousPlayer2
             {
                 using (var cmd = DalHelper.DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Musicas(Nome, Lugar) values (@Nome, @Lugar)";
+                    cmd.CommandText = "INSERT INTO Musicas(Nome, Lugar, Banda) values (@Nome, @Lugar, @Banda)";
                     cmd.Parameters.AddWithValue("@Nome", Nome);
                     cmd.Parameters.AddWithValue("@Lugar", Lugar);
+                    cmd.Parameters.AddWithValue("@Banda", Banda);                    
                     cmd.ExecuteNonQuery();
                 }
             }
