@@ -928,21 +928,16 @@ namespace XeviousPlayer2
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            float VolAnt = 0;
+            if (myPlayer.Paused)
+            {
+                VolAnt = myPlayer.Audio.Volume;
+                myPlayer.Audio.Volume = 0;
+                myPlayer.Paused = false;
+            }                
             PlayMedia();
-            /* if (Tocando)
-            {
-                if (myPlayer.Paused)
-                {
-                    myPlayer.Paused = false;
-                } else
-                {
-                    PlayMedia();
-                }
-            } else                      
-            {
-                PlayMedia();
-                Tocando = true;
-            } */
+            if (VolAnt>0)
+                myPlayer.Audio.Volume = VolAnt;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -967,7 +962,6 @@ namespace XeviousPlayer2
 
         private void toolStripButton14_Click(object sender, EventArgs e)
         {
-            // Parar, mas acho não precisamos realmente do comando parar
             myPlayer.Paused = true;
         }
 
