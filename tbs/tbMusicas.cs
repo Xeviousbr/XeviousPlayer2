@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using XeviousPlayer2.tbs;
 
 namespace XeviousPlayer2
 {
@@ -26,11 +27,6 @@ namespace XeviousPlayer2
         }
 
         public int Banda { get; set; }
-        /* public int Banda
-        {
-            get { return getBanda(); }
-            set { SetaBanda(value); }
-        } */
         public string NomeBanda { get; set; }
 
         public int Ano
@@ -69,21 +65,22 @@ namespace XeviousPlayer2
                 {
                     int PosUltHifen = Nome.LastIndexOf('-');
                     if (PosUltHifen!= PosHifen)
-                        NomeBanda = Nome.Substring(PosUltHifen+2);
+                        this.NomeBanda = Nome.Substring(PosUltHifen+2);
                     else
-                        NomeBanda = Nome.Substring(PosHifen+2);
+                        this.NomeBanda = Nome.Substring(PosHifen+2);
                     
                 } 
             } else
             {
-                NomeBanda = bandaTemp;
+                this.NomeBanda = bandaTemp;
             }
-            return 0;
-        }
 
-        private string getBanda()
-        {
-            return lcNmBanda;
+            // Procurar pela banda
+
+            // Adicionar a banda
+            tbBanda tbB = new tbBanda();
+            tbB.Nome = this.NomeBanda;            
+            return tbB.Adiciona(); 
         }
 
         public void SetaGenero(string nome)

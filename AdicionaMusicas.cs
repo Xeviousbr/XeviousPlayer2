@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using System.Collections;
 using System.IO;
 using PVS.MediaPlayer;
+using System.Data.SQLite;
+using System.Drawing;
 
 namespace XeviousPlayer2
 {    
@@ -18,6 +20,30 @@ namespace XeviousPlayer2
         public AdicionaMusicas()
         {
             InitializeComponent();
+            ColocaSkin();
+        }
+
+        private void ColocaSkin()
+        {
+            string SQL = "Select Skin From Config";
+            string ret = DalHelper.Consulta(SQL);
+            int Skin = int.Parse(ret);
+            using (var cmd = new SQLiteCommand(DalHelper.DbConnection()))
+            {
+                cmd.CommandText = "Select * From Skin Where ID = " + Skin;
+                using (SQLiteDataReader regSkin = cmd.ExecuteReader())
+                {
+                    regSkin.Read();
+                    int thiBacA = int.Parse(regSkin["labForA"].ToString());
+                    int thiBacB = int.Parse(regSkin["labForB"].ToString());
+                    int thiBacC = int.Parse(regSkin["labForC"].ToString());
+                    int lvA = int.Parse(regSkin["thiBacA"].ToString());
+                    int lvB = int.Parse(regSkin["thiBacB"].ToString());
+                    int lvC = int.Parse(regSkin["thiBacC"].ToString());
+                    this.BackColor = Color.FromArgb(thiBacA, thiBacB, thiBacC);
+                    label1.BackColor = Color.FromArgb(lvA, lvB, lvC);
+                }
+            }
         }
 
         private void BuscaMusicas(string sPath)
@@ -107,6 +133,7 @@ namespace XeviousPlayer2
             // Na versão final deve ter uma opção para zerar a base de dados caso o usuário queira
             // mas a importação deve ser sempre incremental
             DalHelper.ExecSql("Delete from Musicas");
+            DalHelper.ExecSql("Delete from Bandas");
 
             BuscaMusicas(Gen.PastaMp3);
             this.Close();
