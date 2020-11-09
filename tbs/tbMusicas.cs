@@ -76,11 +76,17 @@ namespace XeviousPlayer2
             }
 
             // Procurar pela banda
-
-            // Adicionar a banda
-            tbBanda tbB = new tbBanda();
-            tbB.Nome = this.NomeBanda;            
-            return tbB.Adiciona(); 
+            string SQL = "Select IDBanda From Bandas Where NomeBanda = '" + this.NomeBanda + "'";
+            string ret = DalHelper.Consulta(SQL);
+            if (ret != null)
+                this.ID = int.Parse(ret);
+            else
+            {
+                tbBanda tbB = new tbBanda();
+                tbB.Nome = this.NomeBanda;
+                this.ID = tbB.Adiciona();
+            }
+            return this.ID; 
         }
 
         public void SetaGenero(string nome)

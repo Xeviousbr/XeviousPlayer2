@@ -48,32 +48,17 @@ namespace XeviousPlayer2
 
         private void BuscaMusicas(string sPath)
         {
+            this.passo = 2;
+            DirectoryInfo dirInfo = new DirectoryInfo(sPath);
+            foreach (FileInfo Arq in dirInfo.GetFiles())
             {
-                DirectoryInfo dirInfo = new DirectoryInfo(sPath);
-                foreach (FileInfo Arq in dirInfo.GetFiles())
+                if (Gen.OPENMEDIA_DIALOG_FILTER.Contains(Arq.Extension))
                 {
-                    //if (Lidos == 13)
-                    //{
-                    //    int x = 0;
-                    //}
-                    if (Gen.OPENMEDIA_DIALOG_FILTER.Contains(Arq.Extension))
-                    {
-                        if (Arq.Length>0) 
-                            leMusica(Arq);
-                    }
-                    Lidos++;
-                    //if (Lidos>1000)
-                    //{
-                    //    int x = 0;
-                    //}
-                    progressBar1.Value = Lidos;
+                    if (Arq.Length>0) 
+                        leMusica(Arq);
                 }
-                //sFileList.AddRange(dirInfo.GetFiles());
-                //foreach (DirectoryInfo subDirs in dirInfo.GetDirectories())
-                //{
-                //    sFileList.Add(subDirs.FullName);
-                //    BuscaMusicas(subDirs.FullName);
-                //}
+                this.Lidos++;
+                progressBar1.Value = Lidos;
             }
         }
 
@@ -112,10 +97,10 @@ namespace XeviousPlayer2
                     Processa();
                     break;
                 case 1:
-                    label1.Text = "Contanto Arquivos " + Quant.ToString();
+                    label1.Text = "Contando Arquivos " + Quant.ToString();
                     break;
                 case 2:
-                    label1.Text = "Lendo Arquivos " + Quant.ToString();
+                    label1.Text = "Lendo Arquivos " + this.Lidos.ToString() + "/" + Quant.ToString();
                     break;
             }
         }
@@ -124,7 +109,7 @@ namespace XeviousPlayer2
         {
             passo++;
             Opbd = new OperacoesBD();
-            label1.Text = "Contanto Arquivos ";
+            label1.Text = "Contando Arquivos ";
             VeTotal(Gen.PastaMp3);
             label1.Text = "Quantidade localizada : " + Quant.ToString();
             progressBar1.Maximum = Quant;

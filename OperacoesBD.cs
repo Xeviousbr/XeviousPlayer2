@@ -26,9 +26,5 @@ namespace XeviousPlayer2
             tbM.Adiciona();
         }
 
-        private int PegaIdBanda(string artist)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
