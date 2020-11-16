@@ -116,10 +116,11 @@ namespace XeviousPlayer2
             {
                 using (var cmd = DalHelper.DbConnection().CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Musicas(Nome, Lugar, Banda) values (@Nome, @Lugar, @Banda)";
+                    cmd.CommandText = "INSERT INTO Musicas(Nome, Lugar, Banda, Tempo) values (@Nome, @Lugar, @Banda, @Tempo)";
                     cmd.Parameters.AddWithValue("@Nome", Nome);
                     cmd.Parameters.AddWithValue("@Lugar", Lugar);
-                    cmd.Parameters.AddWithValue("@Banda", Banda);                    
+                    cmd.Parameters.AddWithValue("@Banda", Banda);
+                    cmd.Parameters.AddWithValue("@Tempo", Tempo);
                     cmd.ExecuteNonQuery();
                 }
             }

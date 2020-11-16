@@ -13,7 +13,7 @@ namespace XeviousPlayer2
             tbMusicas tbM = new tbMusicas();
             tbM.Nome = data.Title;
             tbM.Ano = data.Year == null ? 0 : int.Parse(data.Year);
-            tbM.Tempo = data.Duration.Seconds;
+            tbM.Tempo = (data.Duration.Minutes*60) + data.Duration.Seconds;
             int AnoTemp;
             int.TryParse(data.Year, out AnoTemp);
             tbM.Ano = AnoTemp;
