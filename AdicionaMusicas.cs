@@ -59,6 +59,10 @@ namespace XeviousPlayer2
                 }
                 this.Lidos++;
                 progressBar1.Value = Lidos;
+                //if (this.Lidos > 20)
+                //{
+                //    break;
+                //}
             }
         }
 
@@ -119,8 +123,16 @@ namespace XeviousPlayer2
             // mas a importação deve ser sempre incremental
             DalHelper.ExecSql("Delete from Musicas");
             DalHelper.ExecSql("Delete from Bandas");
+            DalHelper.ExecSql("Delete from LisMus");
+            DalHelper.ExecSql("Update sqlite_sequence Set seq = 0 Where name = 'Bandas' ");
+            DalHelper.ExecSql("Update sqlite_sequence Set seq = 0 Where name = 'Musicas' ");
+            DalHelper.ExecSql("Update sqlite_sequence Set seq = 0 Where name = 'LisMus' ");
 
+            string SQL = "Select Max(IDMusica) From Musicas";
+            string ret = DalHelper.Consulta(SQL);
+            int UltimoIDMusica = ret == "" ? 0 : int.Parse(ret);
             BuscaMusicas(Gen.PastaMp3);
+            DalHelper.ExecSql("Insert Into LisMus (idMusica) Select IDMusica From Musicas Where IdMusica > " + UltimoIDMusica.ToString());
             this.Close();
         }
 
