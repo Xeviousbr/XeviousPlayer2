@@ -69,7 +69,6 @@ namespace XeviousPlayer2
             May 2020, The Netherlands
         */
 
-
         // **** Class Fields **************************************************************************
 
         #region Class Fields
@@ -98,7 +97,6 @@ namespace XeviousPlayer2
         private bool            isDisposed;         // used with cleaning up
 
         #endregion
-
 
         // **** Main **********************************************************************************
 
@@ -609,6 +607,13 @@ namespace XeviousPlayer2
 
             ColocaSkin();
 
+            string[] arguments = Environment.GetCommandLineArgs();
+            if (arguments.Length > 1)
+            {
+                Toca(arguments[1].ToString());
+            }
+            //int x = 0;
+
         }
 
         // Show display overlay at start up
@@ -669,43 +674,50 @@ namespace XeviousPlayer2
         {
             if (myOpenFileDlg.ShowDialog() == DialogResult.OK)
             {
-                myPlayer.Play(myOpenFileDlg.FileName);
-                if (myPlayer.LastError)
+                Toca(myOpenFileDlg.FileName);
+            }
+        }
+
+        private void Toca(string Musica)
+        {
+            myPlayer.Play(Musica);
+            if (myPlayer.LastError)
+            {
+                MessageBox.Show(myPlayer.LastErrorString);
+            }
+            else
+            {
+                // Show media metadata properties (here for audio media only)
+                if (!myPlayer.Has.Video)
                 {
-                    MessageBox.Show(myPlayer.LastErrorString);
-                }
-                else
-                {
-                    // Show media metadata properties (here for audio media only)
-                    if (!myPlayer.Has.Video)
+                    metaData = myPlayer.Media.GetMetadata();
+
+                    panel1.BackgroundImageLayout = ImageLayout.Zoom;
+                    if (metaData.Image == null)
                     {
-                        metaData = myPlayer.Media.GetMetadata();
-
-                        panel1.BackgroundImageLayout = ImageLayout.Zoom;
-                        if (metaData.Image==null)
-                        {
-                            panel1.Visible = false;
-                            //listView.Height = 446;
-                        } else
-                        {
-                            panel1.Visible = true;
-                            //listView.Height = 259;
-                            panel1.BackgroundImage = metaData.Image;
-                            myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
-                        }
-                        Status.Text = "Tocando " + metaData.Title + " de " + metaData.Artist;
-                        // myPlayer.Pause();
-                        lbMusica.Text = Gen.TrataNome(metaData.Title, metaData.Artist);
-                        lbArtista.Text = metaData.Artist;
-                        lbAlbum.Text = metaData.Album;
-                        lbGenero.Text = metaData.Genre;
-                        lbAno.Text = metaData.Year; 
-
-                        // Pesquisar na base de dados, se tem a musica
-                        // Se tiver, colocar as informações 
+                        panel1.Visible = false;
+                        //listView.Height = 446;
                     }
+                    else
+                    {
+                        panel1.Visible = true;
+                        //listView.Height = 259;
+                        panel1.BackgroundImage = metaData.Image;
+                        myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
+                    }
+                    Status.Text = "Tocando " + metaData.Title + " de " + metaData.Artist;
+                    // myPlayer.Pause();
+                    lbMusica.Text = Gen.TrataNome(metaData.Title, metaData.Artist);
+                    lbArtista.Text = metaData.Artist;
+                    lbAlbum.Text = metaData.Album;
+                    lbGenero.Text = metaData.Genre;
+                    lbAno.Text = metaData.Year;
+
+                    // Pesquisar na base de dados, se tem a musica
+                    // Se tiver, colocar as informações 
                 }
             }
+
         }
 
         //private void PauseMedia()
@@ -1043,6 +1055,55 @@ namespace XeviousPlayer2
         }
 
         #endregion
+
+        public void setaLista(int ilista)
+        {
+            // Selecionar as musicas da lista
+            // Mostras a lista
+
+            /*
+            //limpa o listview
+            lvwResultado.Columns.Clear();
+            lvwResultado.Items.Clear();
+
+            //abre a conexao
+            conn.Open();
+
+            //cria um comando oledb
+            OleDbCommand cmd = conn.CreateCommand();
+            //define o tipo do comando como texto 
+            cmd.CommandText = txtSql.Text;
+
+            //executa o comando e gera um datareader
+            OleDbDataReader dr = cmd.ExecuteReader();
+
+            //preenche o cabeçalho do listview com os nomes dos campos
+            for (int i = 0; i < dr.FieldCount; i++)
+            {
+                ColumnHeader ch = new ColumnHeader();
+                ch.Text = dr.GetName(i);
+                lvwResultado.Columns.Add(ch);
+            }
+
+            //define um item listview
+            ListViewItem item;
+
+            //inicia leitura do datareader
+            while (dr.Read())
+            {
+                item = new ListViewItem();
+                item.Text = dr.GetValue(0).ToString();
+
+                //preenche o listview com itens
+                for (int i = 1; i < dr.FieldCount; i++)
+                {
+                    item.SubItems.Add(dr.GetValue(i).ToString());
+                }
+                lvwResultado.Items.Add(item);
+            }
+            //fecha o datareader
+            dr.Close(); */
+        }
 
     }
 }
