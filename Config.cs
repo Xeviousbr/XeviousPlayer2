@@ -36,17 +36,23 @@ namespace XeviousPlayer2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //if (vazio)
-            //{
-            //DalHelper.ExecSql("CREATE TABLE Config(PathBase Text) ");
-            //DalHelper.ExecSql("Insert Into Config (PathBase) Values ('" + textBox1.Text + "')");
-            Gen.PastaMp3 = textBox1.Text;
-            AdicionaMusicas fAdi = new AdicionaMusicas();
-            fAdi.ShowDialog();
-            //} else
-            //{
-            //    DalHelper.ExecSql("Update Config Set PathBase = '" + textBox1.Text + "'");
-            //}
+            // Gravação
+
+            // Atualizar o caminho da pasta base dos Mp3
+
+            // Atualizar o Skin
+
+            ////if (vazio)
+            ////{
+            ////DalHelper.ExecSql("CREATE TABLE Config(PathBase Text) ");
+            ////DalHelper.ExecSql("Insert Into Config (PathBase) Values ('" + textBox1.Text + "')");
+            //Gen.PastaMp3 = textBox1.Text;
+            //AdicionaMusicas fAdi = new AdicionaMusicas();
+            //fAdi.ShowDialog();
+            ////} else
+            ////{
+            ////    DalHelper.ExecSql("Update Config Set PathBase = '" + textBox1.Text + "'");
+            ////}
             this.Close();
         }
 

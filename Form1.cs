@@ -6,6 +6,7 @@ using System.Drawing.Drawing2D;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Data.Common;
 
 namespace XeviousPlayer2
 {
@@ -605,12 +606,15 @@ namespace XeviousPlayer2
             trackBar2.Scroll += TrackBar2_Scroll;   // see eventhandler below
             trackBar3.Scroll += TrackBar3_Scroll;   // see eventhandler below
 
-            ColocaSkin();
+            //ColocaSkin();
 
             string[] arguments = Environment.GetCommandLineArgs();
             if (arguments.Length > 1)
             {
                 Toca(arguments[1].ToString());
+            } else
+            {
+                setaLista(1);
             }
             //int x = 0;
 
@@ -1019,6 +1023,10 @@ namespace XeviousPlayer2
             // Configurações
             Config cConfig = new Config();
             cConfig.ShowDialog();
+            if (Gen.Lista==-1)
+            {
+                setaLista(1);
+            }
         }
 
         #endregion
@@ -1058,52 +1066,102 @@ namespace XeviousPlayer2
 
         public void setaLista(int ilista)
         {
-            // Selecionar as musicas da lista
-            // Mostras a lista
+            listView.Columns.Clear();
+            listView.Items.Clear();
 
-            /*
-            //limpa o listview
-            lvwResultado.Columns.Clear();
-            lvwResultado.Items.Clear();
+            StringBuilder SQL = new StringBuilder();
+            SQL.AppendLine("Select Musicas.*, Bandas.NomeBanda");
+            SQL.AppendLine("From LisMus");
+            SQL.AppendLine("Inner Join Musicas on Musicas.IDMusica = LisMus.IdMusica");
+            SQL.AppendLine("Inner Join Bandas on Bandas.IDBanda = Musicas.Banda");
+            SQL.AppendLine("Where LisMus.Lista = "+ ilista.ToString());
 
-            //abre a conexao
-            conn.Open();
+            SQLiteCommand command = new SQLiteCommand(SQL.ToString(), DalHelper.DbConnection());
 
-            //cria um comando oledb
-            OleDbCommand cmd = conn.CreateCommand();
-            //define o tipo do comando como texto 
-            cmd.CommandText = txtSql.Text;
-
-            //executa o comando e gera um datareader
-            OleDbDataReader dr = cmd.ExecuteReader();
-
-            //preenche o cabeçalho do listview com os nomes dos campos
-            for (int i = 0; i < dr.FieldCount; i++)
+            using (DbDataReader reader = command.ExecuteReader())
             {
-                ColumnHeader ch = new ColumnHeader();
-                ch.Text = dr.GetName(i);
-                lvwResultado.Columns.Add(ch);
-            }
-
-            //define um item listview
-            ListViewItem item;
-
-            //inicia leitura do datareader
-            while (dr.Read())
-            {
-                item = new ListViewItem();
-                item.Text = dr.GetValue(0).ToString();
-
-                //preenche o listview com itens
-                for (int i = 1; i < dr.FieldCount; i++)
+                if (reader.HasRows)
                 {
-                    item.SubItems.Add(dr.GetValue(i).ToString());
+                    while (reader.Read())
+                    {
+
+                        string Nome = reader.GetString(1);
+                        //.GetInt32(1);
+
+                        ListViewItem listviewitem;
+                        listviewitem = new ListViewItem(Nome);
+
+                        this.listView.Items.Add(listviewitem);
+
+                        //ApiManagerDoor door = new ApiManagerDoor { status = 0 };
+
+                        //door.serverId = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                        //door.zoneName = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                        //door.doorId = reader.IsDBNull(2) ? 0 : reader.GetInt32(2);
+                        //door.doorName = reader.IsDBNull(3) ? "Porta " + door.doorId.ToString() : reader.GetString(3);
+
+                        //doors.Add(door);
+                    }
                 }
-                lvwResultado.Items.Add(item);
             }
-            //fecha o datareader
-            dr.Close(); */
+            listView.View = View.List;
+            this.listView.Refresh();
+
+            //listviewitem = new ListViewItem("John");
+            //listviewitem.SubItems.Add("Smith");
+            //listviewitem.SubItems.Add("kaya");
+            //listviewitem.SubItems.Add("bun");
+            
+            // this.listView.ColumnClick += new ColumnClickEventHandler(ColumnClick);
+            //show header
+            
+            
+
+            // Loop through and size each column header to fit the column header text.
+            //foreach (ColumnHeader ch in this.listView.Columns)
+            //{
+            //    ch.Width = -2;
+            //}
+
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ListViewItem listviewitem;
+
+            listviewitem = new ListViewItem("John");
+            listviewitem.SubItems.Add("Smith");
+            listviewitem.SubItems.Add("kaya");
+            listviewitem.SubItems.Add("bun");
+            this.listView.Items.Add(listviewitem);
+            // this.listView.ColumnClick += new ColumnClickEventHandler(ColumnClick);
+            //show header
+            listView.View = View.Details;
+            this.listView.Refresh();
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ListViewItem listviewitem;
+            listviewitem = new ListViewItem("John");
+            listviewitem.SubItems.Add("Smith");
+            listviewitem.SubItems.Add("kaya");
+            listviewitem.SubItems.Add("bun");
+            this.listView.Items.Add(listviewitem);
+            // this.listView.ColumnClick += new ColumnClickEventHandler(ColumnClick);
+            //show header
+            listView.View = View.List;
+            this.listView.Refresh();
+        }
+
+        //private void ColumnClick(object o, ColumnClickEventArgs e)
+        //{
+        //    // Set the ListViewItemSorter property to a new ListViewItemComparer 
+        //    // object. Setting this property immediately sorts the 
+        //    // ListView using the ListViewItemComparer object.
+        //    this.listView.ListViewItemSorter = new ListViewItemComparer(e.Column);
+        //}
 
     }
 }

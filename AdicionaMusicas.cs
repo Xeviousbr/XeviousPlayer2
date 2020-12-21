@@ -59,10 +59,10 @@ namespace XeviousPlayer2
                 }
                 this.Lidos++;
                 progressBar1.Value = Lidos;
-                //if (this.Lidos > 20)
-                //{
-                //    break;
-                //}
+                if (this.Lidos > 16)
+                {
+                    break;
+                }
             }
         }
 
@@ -132,7 +132,8 @@ namespace XeviousPlayer2
             string ret = DalHelper.Consulta(SQL);
             int UltimoIDMusica = ret == "" ? 0 : int.Parse(ret);
             BuscaMusicas(Gen.PastaMp3);
-            DalHelper.ExecSql("Insert Into LisMus (idMusica) Select IDMusica From Musicas Where IdMusica > " + UltimoIDMusica.ToString());
+            DalHelper.ExecSql("Insert Into LisMus (Lista, idMusica) Select 1 as Lista, IDMusica From Musicas Where IdMusica > " + UltimoIDMusica.ToString());
+            Gen.Lista = -1;
             this.Close();
         }
 
