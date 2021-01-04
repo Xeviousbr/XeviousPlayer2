@@ -1033,41 +1033,39 @@ namespace XeviousPlayer2
 
         #region Inicializacao
 
-        private void ColocaSkin()
-        {
-            // Por enquanto tem só duas telas que usam o Skin
-            // Mas se tiver mais o ideal é colocar numa classe específica
-            string SQL = "Select Skin From Config";
-            string ret = DalHelper.Consulta(SQL);
-            int Skin = int.Parse(ret);
-            using (var cmd = new SQLiteCommand(DalHelper.DbConnection()))
-            {
-                cmd.CommandText = "Select * From Skin Where ID = " + Skin;
-                using (SQLiteDataReader regSkin = cmd.ExecuteReader())
-                {
-                    regSkin.Read();
-                    int thiBacA = int.Parse(regSkin["labForA"].ToString());
-                    int thiBacB = int.Parse(regSkin["labForB"].ToString());
-                    int thiBacC = int.Parse(regSkin["labForC"].ToString());                    
-                    int panA = int.Parse(regSkin["panBacA"].ToString());
-                    int panB = int.Parse(regSkin["panBacB"].ToString());
-                    int panC = int.Parse(regSkin["panBacC"].ToString());                    
-                    int lvA = int.Parse(regSkin["thiBacA"].ToString());
-                    int lvB = int.Parse(regSkin["thiBacB"].ToString());
-                    int lvC = int.Parse(regSkin["thiBacC"].ToString());
-                    this.BackColor = Color.FromArgb(thiBacA, thiBacB, thiBacC);
-                    this.panel1.BackColor = Color.FromArgb(panA, panB, panC);
-                    this.listView.BackColor = Color.FromArgb(lvA, lvB, lvC);
-                }
-            }
-        }
+        //private void ColocaSkin()
+        //{
+        //    // Por enquanto tem só duas telas que usam o Skin
+        //    // Mas se tiver mais o ideal é colocar numa classe específica
+        //    string SQL = "Select Skin From Config";
+        //    string ret = DalHelper.Consulta(SQL);
+        //    int Skin = int.Parse(ret);
+        //    using (var cmd = new SQLiteCommand(DalHelper.DbConnection()))
+        //    {
+        //        cmd.CommandText = "Select * From Skin Where ID = " + Skin;
+        //        using (SQLiteDataReader regSkin = cmd.ExecuteReader())
+        //        {
+        //            regSkin.Read();
+        //            int thiBacA = int.Parse(regSkin["labForA"].ToString());
+        //            int thiBacB = int.Parse(regSkin["labForB"].ToString());
+        //            int thiBacC = int.Parse(regSkin["labForC"].ToString());                    
+        //            int panA = int.Parse(regSkin["panBacA"].ToString());
+        //            int panB = int.Parse(regSkin["panBacB"].ToString());
+        //            int panC = int.Parse(regSkin["panBacC"].ToString());                    
+        //            int lvA = int.Parse(regSkin["thiBacA"].ToString());
+        //            int lvB = int.Parse(regSkin["thiBacB"].ToString());
+        //            int lvC = int.Parse(regSkin["thiBacC"].ToString());
+        //            this.BackColor = Color.FromArgb(thiBacA, thiBacB, thiBacC);
+        //            this.panel1.BackColor = Color.FromArgb(panA, panB, panC);
+        //            this.listView.BackColor = Color.FromArgb(lvA, lvB, lvC);
+        //        }
+        //    }
+        //}
 
         #endregion
 
         public void setaLista(int ilista)
         {
-            listView.Columns.Clear();
-            listView.Items.Clear();
 
             StringBuilder SQL = new StringBuilder();
             SQL.AppendLine("Select Musicas.*, Bandas.NomeBanda");
@@ -1078,6 +1076,8 @@ namespace XeviousPlayer2
 
             SQLiteCommand command = new SQLiteCommand(SQL.ToString(), DalHelper.DbConnection());
 
+            // listView.Columns.Clear();
+            listView.Items.Clear();
             using (DbDataReader reader = command.ExecuteReader())
             {
                 if (reader.HasRows)
@@ -1086,36 +1086,23 @@ namespace XeviousPlayer2
                     {
 
                         string Nome = reader.GetString(1);
-                        //.GetInt32(1);
-
-                        ListViewItem listviewitem;
-                        listviewitem = new ListViewItem(Nome);
-
-                        this.listView.Items.Add(listviewitem);
-
-                        //ApiManagerDoor door = new ApiManagerDoor { status = 0 };
-
-                        //door.serverId = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
-                        //door.zoneName = reader.IsDBNull(1) ? "" : reader.GetString(1);
-                        //door.doorId = reader.IsDBNull(2) ? 0 : reader.GetInt32(2);
-                        //door.doorName = reader.IsDBNull(3) ? "Porta " + door.doorId.ToString() : reader.GetString(3);
-
-                        //doors.Add(door);
+                        string Lugar = reader.GetString(2);
+                        ListViewItem listViewItem1 = new ListViewItem(new string[] { Nome, Lugar }, -1);
+                        listView.Items.Add(listViewItem1);
                     }
                 }
             }
-            listView.View = View.List;
+            listView.View = View.Details;
             this.listView.Refresh();
 
-            //listviewitem = new ListViewItem("John");
-            //listviewitem.SubItems.Add("Smith");
-            //listviewitem.SubItems.Add("kaya");
-            //listviewitem.SubItems.Add("bun");
-            
+            string Tocar = this.listView.Items[0].SubItems[1].Text;
+            this.Toca(Tocar);
+            // this.Toca(this.listView.GetItemAt[0]);
+
             // this.listView.ColumnClick += new ColumnClickEventHandler(ColumnClick);
             //show header
-            
-            
+
+
 
             // Loop through and size each column header to fit the column header text.
             //foreach (ColumnHeader ch in this.listView.Columns)

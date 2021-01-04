@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "111",
+            "Nome",
+            "Lugar"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            "222",
+            "Nome2",
+            "Lugar2"}, -1);
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
@@ -91,7 +99,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.listView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Lugar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -744,17 +753,36 @@
             // 
             // listView
             // 
+            this.listView.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.listView.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Nome,
+            this.Lugar});
+            this.listView.ForeColor = System.Drawing.Color.Lime;
             this.listView.HideSelection = false;
+            this.listView.HotTracking = true;
+            this.listView.HoverSelection = true;
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.StateImageIndex = 0;
+            this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
             this.listView.Location = new System.Drawing.Point(16, 219);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(720, 305);
             this.listView.TabIndex = 2;
             this.listView.UseCompatibleStateImageBehavior = false;
-            this.listView.View = System.Windows.Forms.View.List;
+            this.listView.View = System.Windows.Forms.View.Details;
+            // 
+            // Nome
+            // 
+            this.Nome.Text = "Nome";
+            this.Nome.Width = 287;
+            // 
+            // Lugar
+            // 
+            this.Lugar.Text = "Lugar";
+            this.Lugar.Width = 405;
             // 
             // Form1
             // 
@@ -867,7 +895,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ToolStripButton toolStripButton22;
         private System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader Nome;
+        private System.Windows.Forms.ColumnHeader Lugar;
     }
 }
 

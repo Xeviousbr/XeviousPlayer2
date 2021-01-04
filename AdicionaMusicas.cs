@@ -59,10 +59,10 @@ namespace XeviousPlayer2
                 }
                 this.Lidos++;
                 progressBar1.Value = Lidos;
-                if (this.Lidos > 16)
-                {
-                    break;
-                }
+                //if (this.Lidos > 16)
+                //{
+                //    break;
+                //}
             }
         }
 
