@@ -102,6 +102,9 @@ namespace XeviousPlayer2
         // **** Main **********************************************************************************
 
         private bool Tocando = false;
+        private long eToEnd = -1;
+        private int IndiceNaLista;
+        private bool TratarFinalDaMusica = true;
 
         #region Main
 
@@ -684,6 +687,11 @@ namespace XeviousPlayer2
 
         private void Toca(string Musica)
         {
+            if (myPlayer.Playing)
+            {
+                myPlayer.Stop();
+            }
+            this.TratarFinalDaMusica = false;
             myPlayer.Play(Musica);
             if (myPlayer.LastError)
             {
@@ -709,6 +717,12 @@ namespace XeviousPlayer2
                         panel1.BackgroundImage = metaData.Image;
                         myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
                     }
+
+                    if (metaData.Title == null)
+                    {
+                        int y = 0;
+                    }
+
                     Status.Text = "Tocando " + metaData.Title + " de " + metaData.Artist;
                     // myPlayer.Pause();
                     lbMusica.Text = Gen.TrataNome(metaData.Title, metaData.Artist);
@@ -721,6 +735,8 @@ namespace XeviousPlayer2
                     // Se tiver, colocar as informações 
                 }
             }
+            this.eToEnd = -1;
+            this.TratarFinalDaMusica = true;
 
         }
 
@@ -760,10 +776,22 @@ namespace XeviousPlayer2
             // all lengths are in 'ticks' - 10000 ticks = 1 millisecond - use TimeSpan.FromTicks:
 
             label1.Text = TimeSpan.FromTicks(e.FromStart).ToString().Substring(0, 8); // "hh:mm:ss"
-            //label2.Text = TimeSpan.FromTicks(e.ToStop).ToString().Substring(0, 8);    // "hh:mm:ss"
+                                                                                      //label2.Text = TimeSpan.FromTicks(e.ToStop).ToString().Substring(0, 8);    // "hh:mm:ss"
 
             // from .NET 4.0 TimeSpan supports (custom) format strings e.g.
             // label1.Text = TimeSpan.FromTicks(e.FromStart).ToString(@"hh\:mm\:ss"); // "hh:mm:ss"
+
+            if (this.TratarFinalDaMusica==true)
+            {
+                if (this.eToEnd > -1)
+                {
+                    if (this.eToEnd < e.ToEnd)
+                    {
+                        this.ProxMusica();
+                    }
+                }
+                this.eToEnd = e.ToEnd;
+            }
         }
 
         // Handle media audio output levels - calculate the values and paint the level displays
@@ -833,45 +861,55 @@ namespace XeviousPlayer2
             // you can just stop any processes (and not starting new media) from the
             // MediaEndedNotice eventhandler that is fired just before the MediaEnded event.
 
-            //switch (e.StopReason)
-            //{
-            //    case StopReason.Finished:
-            //        break;
+            int x = 0;
+            switch (e.StopReason)
+            {
+                case StopReason.Finished:
+                    x = 1;
+                    break;
 
-            //    case StopReason.AutoStop:
-            //        break;
+                case StopReason.AutoStop:
+                    x = 2;
+                    break;
 
-            //    case StopReason.UserStop:
-            //        break;
+                case StopReason.UserStop:
+                    x = 3;
+                    break;
 
-            //    case StopReason.Error:
-            //        // this can be treated the same as StopReason.Finished
-            //        break;
-            //}
+                case StopReason.Error:
+                    x = 4;
+                    // this can be treated the same as StopReason.Finished
+                    break;
+            }
+
         }
 
         // Media has finished or stopped playing (2)
         private void MyPlayer_MediaEnded(object sender, EndedEventArgs e)
         {
             DisposeMetadata();
+            int x = 0;
+            switch (e.StopReason)
+            {
+                case StopReason.Finished:
+                    x = 1;
+                    // play next media ...
+                    break;
 
-            //switch (e.StopReason)
-            //{
-            //    case StopReason.Finished:
-            //        // play next media ...
-            //        break;
+                case StopReason.AutoStop:
+                    x = 2;
+                    break;
 
-            //    case StopReason.AutoStop:
-            //        break;
+                case StopReason.UserStop:
+                    x = 3;
+                    break;
 
-            //    case StopReason.UserStop:
-            //        break;
-
-            //    case StopReason.Error:
-            //        // this can be treated the same as StopReason.Finished if
-            //        // you don't want to handle these errors (may not occur at all)
-            //        break;
-            //}
+                case StopReason.Error:
+                    x = 4;
+                    // this can be treated the same as StopReason.Finished if
+                    // you don't want to handle these errors (may not occur at all)
+                    break;
+            }
         }
 
         // Get media subtitles / media subtitle has changed
@@ -973,7 +1011,13 @@ namespace XeviousPlayer2
 
         private void toolStripButton13_Click(object sender, EventArgs e)
         {
-            // Musica anterior
+            if (IndiceNaLista>0)
+            {
+                this.listView.Items[this.IndiceNaLista].Focused = false;
+                this.listView.Items[this.IndiceNaLista].Selected = false;
+                IndiceNaLista = IndiceNaLista - 2;
+                this.ProxMusica();
+            }
         }
 
         private void toolStripButton14_Click(object sender, EventArgs e)
@@ -983,7 +1027,6 @@ namespace XeviousPlayer2
 
         private void toolStripButton15_Click(object sender, EventArgs e)
         {
-            // Continua
             myPlayer.Paused = false;
         }
 
@@ -1000,7 +1043,10 @@ namespace XeviousPlayer2
 
         private void toolStripButton18_Click(object sender, EventArgs e)
         {
-            // Próxima musica
+            if (IndiceNaLista < this.listView.Items.Count)
+            {
+                this.ProxMusica();
+            }
         }
 
         private void toolStripButton19_Click(object sender, EventArgs e)
@@ -1095,8 +1141,11 @@ namespace XeviousPlayer2
             listView.View = View.Details;
             this.listView.Refresh();
 
-            string Tocar = this.listView.Items[0].SubItems[1].Text;
-            this.Toca(Tocar);
+            this.IndiceNaLista = -1;
+            ProxMusica();
+
+            //string Tocar = this.listView.Items[this.IndiceNaLista].SubItems[1].Text;
+            //this.Toca(Tocar);
             // this.Toca(this.listView.GetItemAt[0]);
 
             // this.listView.ColumnClick += new ColumnClickEventHandler(ColumnClick);
@@ -1150,5 +1199,18 @@ namespace XeviousPlayer2
         //    this.listView.ListViewItemSorter = new ListViewItemComparer(e.Column);
         //}
 
+        private void ProxMusica()
+        {
+            if (this.IndiceNaLista>-1)
+            {
+                this.listView.Items[this.IndiceNaLista].Focused = false;
+                this.listView.Items[this.IndiceNaLista].Selected = false;
+            }
+            this.IndiceNaLista++;
+            string Tocar = this.listView.Items[this.IndiceNaLista].SubItems[1].Text;
+            this.Toca(Tocar);
+            this.listView.Items[this.IndiceNaLista].Focused = true;
+            this.listView.Items[this.IndiceNaLista].Selected = true;
+        }
     }
 }

@@ -759,6 +759,7 @@
             this.Nome,
             this.Lugar});
             this.listView.ForeColor = System.Drawing.Color.Lime;
+            this.listView.FullRowSelect = true;
             this.listView.HideSelection = false;
             this.listView.HotTracking = true;
             this.listView.HoverSelection = true;
