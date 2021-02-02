@@ -713,26 +713,35 @@ namespace XeviousPlayer2
                     else
                     {
                         panel1.Visible = true;
-                        //listView.Height = 259;
-                        panel1.BackgroundImage = metaData.Image;
-                        myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
+                        picImg.Image = metaData.Image;
+                        // panel1.BackgroundImage = metaData.Image;
+                        // myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + metaData.Title;
                     }
-
+                    string Nome = "";
                     if (metaData.Title == null)
+                        Nome = Gen.RetNomePeloCaminho(Musica);
+                    else
                     {
-                        int y = 0;
+                        Nome = metaData.Title;
+                        if (Nome.Length < 2)
+                            Nome = Gen.RetNomePeloCaminho(Musica);
                     }
 
-                    Status.Text = "Tocando " + metaData.Title + " de " + metaData.Artist;
                     // myPlayer.Pause();
-                    lbMusica.Text = Gen.TrataNome(metaData.Title, metaData.Artist);
+                    lbMusica.Text = Gen.TrataNome(Nome, metaData.Artist);
                     lbArtista.Text = metaData.Artist;
                     lbAlbum.Text = metaData.Album;
                     lbGenero.Text = metaData.Genre;
                     lbAno.Text = metaData.Year;
 
+                    Status.Text = "Tocando " + Nome + " de " + metaData.Artist;
+                    myOverlay.subtitlesLabel.Text = metaData.Artist + "\r\n" + Nome;
+
                     // Pesquisar na base de dados, se tem a musica
                     // Se tiver, colocar as informações 
+                } else
+                {
+                    MessageBox.Show("O programa ainda não esta adaptado para funcionar vídeo");
                 }
             }
             this.eToEnd = -1;
@@ -1212,5 +1221,7 @@ namespace XeviousPlayer2
             this.listView.Items[this.IndiceNaLista].Focused = true;
             this.listView.Items[this.IndiceNaLista].Selected = true;
         }
+
+
     }
 }

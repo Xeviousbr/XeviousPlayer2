@@ -97,7 +97,7 @@
             this.Label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.picImg = new System.Windows.Forms.PictureBox();
             this.listView = new System.Windows.Forms.ListView();
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Lugar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -111,7 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImg)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -509,7 +509,7 @@
             this.panel2.Controls.Add(this.Label);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.pictureBox4);
-            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.picImg);
             this.panel2.Location = new System.Drawing.Point(16, 54);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(720, 159);
@@ -743,13 +743,13 @@
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox3
+            // picImg
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(7, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(142, 132);
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
+            this.picImg.Location = new System.Drawing.Point(7, 12);
+            this.picImg.Name = "picImg";
+            this.picImg.Size = new System.Drawing.Size(142, 132);
+            this.picImg.TabIndex = 0;
+            this.picImg.TabStop = false;
             // 
             // listView
             // 
@@ -827,7 +827,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -870,7 +870,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox picImg;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;

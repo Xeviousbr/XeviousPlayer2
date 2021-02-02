@@ -50,6 +50,13 @@ namespace XeviousPlayer2
             return Nome;
         }
 
+        public static string RetNomePeloCaminho(string Caminho)
+        {
+            string[] Nomes = Caminho.Split('\\');
+            string[] Nome = Nomes[Nomes.Length - 1].Split('.');
+            return Nome[0];
+        }
+
         private static string TiraNomeDaBanda(string Nome, string Banda)
         {
             int PosBanda = Nome.LastIndexOf(Banda);
